@@ -85,7 +85,7 @@
           <Property Name="ServisIDS" Type="Int32" Nullable="true" />
         </EntityType>
         <Association Name="ServisServiser">
-          <End Type="ServisDBMF.Servis" Role="Servis" Multiplicity="1" />
+          <End Type="ServisDBMF.Servis" Role="Servis" Multiplicity="0..1" />
           <End Type="ServisDBMF.Serviser" Role="Serviser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Servis">
