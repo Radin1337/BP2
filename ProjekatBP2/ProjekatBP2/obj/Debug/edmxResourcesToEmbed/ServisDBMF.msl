@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServisDBMFStoreContainer" CdmEntityContainer="ServisDBMFContainer">
+    <EntitySetMapping Name="Servis">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Servis)">
+        <MappingFragment StoreEntitySet="Servis">
+          <ScalarProperty Name="IDS" ColumnName="IDS" />
+          <ScalarProperty Name="NazivS" ColumnName="NazivS" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servisers">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Serviser)">
+        <MappingFragment StoreEntitySet="Servisers">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="TipServ" ColumnName="TipServ" />
+          <ScalarProperty Name="ServisIDS" ColumnName="ServisIDS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Dijagnosticar)">
+        <MappingFragment StoreEntitySet="Servisers_Dijagnosticar">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Majstor)">
+        <MappingFragment StoreEntitySet="Servisers_Majstor">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Automobils">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Automobil)">
+        <MappingFragment StoreEntitySet="Automobils">
+          <ScalarProperty Name="SASIJA" ColumnName="SASIJA" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="TipMot" ColumnName="TipMot" />
+          <ScalarProperty Name="ServisIDS" ColumnName="ServisIDS" />
+          <ScalarProperty Name="BrSK" ColumnName="BrSK" />
+          <ScalarProperty Name="DatSK" ColumnName="DatSK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Sus)">
+        <MappingFragment StoreEntitySet="Automobils_Sus">
+          <ScalarProperty Name="SASIJA" ColumnName="SASIJA" />
+          <ScalarProperty Name="Gorivo" ColumnName="Gorivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Elektricni)">
+        <MappingFragment StoreEntitySet="Automobils_Elektricni">
+          <ScalarProperty Name="SASIJA" ColumnName="SASIJA" />
+          <ScalarProperty Name="BrMot" ColumnName="BrMot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pregleds">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Pregled)">
+        <MappingFragment StoreEntitySet="Pregleds">
+          <ScalarProperty Name="AutomobilSASIJA" ColumnName="AutomobilSASIJA" />
+          <ScalarProperty Name="DijagnosticarJMBG" ColumnName="DijagnosticarJMBG" />
+          <ScalarProperty Name="DatPre" ColumnName="DatPre" />
+          <ScalarProperty Name="Stanje" ColumnName="Stanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deos">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Deo)">
+        <MappingFragment StoreEntitySet="Deos">
+          <ScalarProperty Name="DEOID" ColumnName="DEOID" />
+          <ScalarProperty Name="NazivD" ColumnName="NazivD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pokvarens">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Pokvaren)">
+        <MappingFragment StoreEntitySet="Pokvarens">
+          <ScalarProperty Name="PregledAutomobilSASIJA" ColumnName="PregledAutomobilSASIJA" />
+          <ScalarProperty Name="PregledDijagnosticarJMBG" ColumnName="PregledDijagnosticarJMBG" />
+          <ScalarProperty Name="DeoDEOID" ColumnName="DeoDEOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MajstorZas">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.MajstorZa)">
+        <MappingFragment StoreEntitySet="MajstorZas">
+          <ScalarProperty Name="DeoDEOID" ColumnName="DeoDEOID" />
+          <ScalarProperty Name="MajstorJMBG" ColumnName="MajstorJMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Popravljens">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Popravljen)">
+        <MappingFragment StoreEntitySet="Popravljens">
+          <ScalarProperty Name="PokvarenPregledAutomobilSASIJA" ColumnName="PokvarenPregledAutomobilSASIJA" />
+          <ScalarProperty Name="PokvarenPregledDijagnosticarJMBG" ColumnName="PokvarenPregledDijagnosticarJMBG" />
+          <ScalarProperty Name="PokvarenDeoDEOID" ColumnName="PokvarenDeoDEOID" />
+          <ScalarProperty Name="MajstorZaDeoDEOID" ColumnName="MajstorZaDeoDEOID" />
+          <ScalarProperty Name="MajstorZaMajstorJMBG" ColumnName="MajstorZaMajstorJMBG" />
+          <ScalarProperty Name="DatPop" ColumnName="DatPop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

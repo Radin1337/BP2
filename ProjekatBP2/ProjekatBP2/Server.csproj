@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A10B2132-A1E1-46AC-BE7C-B9B6E30D945A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ProjekatBP2</RootNamespace>
+    <AssemblyName>ProjekatBP2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Automobil.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deo.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dijagnosticar.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Elektricni.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Majstor.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MajstorZa.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pokvaren.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Popravljen.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pregled.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servis.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServisDBMF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServisDBMF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServisDBMF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServisDBMF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServisDBMF.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Serviser.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sus.cs">
+      <DependentUpon>ServisDBMF.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="ServisDBMF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ServisDBMF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="ServisDBMF.edmx.diagram">
+      <DependentUpon>ServisDBMF.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ServisDBMF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServisDBMF.Context.cs</LastGenOutput>
+      <DependentUpon>ServisDBMF.edmx</DependentUpon>
+    </Content>
+    <Content Include="ServisDBMF.edmx.sql" />
+    <Content Include="ServisDBMF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServisDBMF.cs</LastGenOutput>
+      <DependentUpon>ServisDBMF.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

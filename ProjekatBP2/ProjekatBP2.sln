@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjekatBP2", "ProjekatBP2\ProjekatBP2.csproj", "{A10B2132-A1E1-46AC-BE7C-B9B6E30D945A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "ProjekatBP2\Server.csproj", "{A10B2132-A1E1-46AC-BE7C-B9B6E30D945A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
