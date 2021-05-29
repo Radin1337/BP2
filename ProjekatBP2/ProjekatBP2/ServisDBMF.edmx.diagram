@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="51ec710aaae44ca991428cba4ed4be56" Name="Diagram1" >
+        <EntityTypeShape EntityType="ServisDBMF.Servis" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ServisDBMF.Serviser" Width="1.5" PointX="11.125" PointY="0.5" />
+        <AssociationConnector Association="ServisDBMF.ServisServiser" />
+        <EntityTypeShape EntityType="ServisDBMF.Majstor" Width="1.5" PointX="13.125" PointY="3" />
+        <InheritanceConnector EntityType="ServisDBMF.Majstor" />
+        <EntityTypeShape EntityType="ServisDBMF.Dijagnosticar" Width="1.5" PointX="8.75" PointY="3" />
+        <InheritanceConnector EntityType="ServisDBMF.Dijagnosticar" />
+        <EntityTypeShape EntityType="ServisDBMF.Automobil" Width="1.5" PointX="0.5" PointY="3.5" />
+        <AssociationConnector Association="ServisDBMF.AutomobilServis" />
+        <EntityTypeShape EntityType="ServisDBMF.Sus" Width="1.5" PointX="0.5" PointY="7.25" />
+        <InheritanceConnector EntityType="ServisDBMF.Sus" />
+        <EntityTypeShape EntityType="ServisDBMF.Elektricni" Width="1.5" PointX="2.5" PointY="7.25" />
+        <InheritanceConnector EntityType="ServisDBMF.Elektricni" />
+        <EntityTypeShape EntityType="ServisDBMF.Pregled" Width="1.5" PointX="5" PointY="2.375" />
+        <AssociationConnector Association="ServisDBMF.PregledAutomobil" />
+        <AssociationConnector Association="ServisDBMF.PregledDijagnosticar" />
+        <EntityTypeShape EntityType="ServisDBMF.Deo" Width="1.5" PointX="8.75" PointY="7.625" />
+        <EntityTypeShape EntityType="ServisDBMF.Pokvaren" Width="1.5" PointX="5" PointY="5.25" />
+        <AssociationConnector Association="ServisDBMF.PokvarenPregled" />
+        <AssociationConnector Association="ServisDBMF.PokvarenDeo" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ServisDBMF.MajstorZa" Width="1.5" PointX="13.125" PointY="5.125" />
+        <AssociationConnector Association="ServisDBMF.MajstorZaMajstor" />
+        <AssociationConnector Association="ServisDBMF.MajstorZaDeo" />
+        <EntityTypeShape EntityType="ServisDBMF.Popravljen" Width="1.5" PointX="8.75" PointY="4.875" />
+        <AssociationConnector Association="ServisDBMF.PopravljenPokvaren" />
+        <AssociationConnector Association="ServisDBMF.PopravljenMajstorZa" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
