@@ -4,11 +4,368 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ServisDBMF.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="ServisDBMFTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="ServisDBMF.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ServisDBMFStoreContainer">
+    <EntitySet Name="Servis" EntityType="ServisDBMF.Store.Servis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Servisers" EntityType="ServisDBMF.Store.Servisers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Automobils" EntityType="ServisDBMF.Store.Automobils" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pregleds" EntityType="ServisDBMF.Store.Pregleds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Deos" EntityType="ServisDBMF.Store.Deos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pokvarens" EntityType="ServisDBMF.Store.Pokvarens" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MajstorZas" EntityType="ServisDBMF.Store.MajstorZas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Popravljens" EntityType="ServisDBMF.Store.Popravljens" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Servisers_Dijagnosticar" EntityType="ServisDBMF.Store.Servisers_Dijagnosticar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Servisers_Majstor" EntityType="ServisDBMF.Store.Servisers_Majstor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Automobils_Sus" EntityType="ServisDBMF.Store.Automobils_Sus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Automobils_Elektricni" EntityType="ServisDBMF.Store.Automobils_Elektricni" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ServisServiser" Association="ServisDBMF.Store.ServisServiser">
+      <End Role="Servis" EntitySet="Servis" />
+      <End Role="Serviser" EntitySet="Servisers" />
+    </AssociationSet>
+    <AssociationSet Name="AutomobilServis" Association="ServisDBMF.Store.AutomobilServis">
+      <End Role="Automobil" EntitySet="Automobils" />
+      <End Role="Servis" EntitySet="Servis" />
+    </AssociationSet>
+    <AssociationSet Name="PregledAutomobil" Association="ServisDBMF.Store.PregledAutomobil">
+      <End Role="Pregled" EntitySet="Pregleds" />
+      <End Role="Automobil" EntitySet="Automobils" />
+    </AssociationSet>
+    <AssociationSet Name="PregledDijagnosticar" Association="ServisDBMF.Store.PregledDijagnosticar">
+      <End Role="Pregled" EntitySet="Pregleds" />
+      <End Role="Dijagnosticar" EntitySet="Servisers_Dijagnosticar" />
+    </AssociationSet>
+    <AssociationSet Name="PokvarenPregled" Association="ServisDBMF.Store.PokvarenPregled">
+      <End Role="Pokvaren" EntitySet="Pokvarens" />
+      <End Role="Pregled" EntitySet="Pregleds" />
+    </AssociationSet>
+    <AssociationSet Name="PokvarenDeo" Association="ServisDBMF.Store.PokvarenDeo">
+      <End Role="Pokvaren" EntitySet="Pokvarens" />
+      <End Role="Deo" EntitySet="Deos" />
+    </AssociationSet>
+    <AssociationSet Name="MajstorZaMajstor" Association="ServisDBMF.Store.MajstorZaMajstor">
+      <End Role="MajstorZa" EntitySet="MajstorZas" />
+      <End Role="Majstor" EntitySet="Servisers_Majstor" />
+    </AssociationSet>
+    <AssociationSet Name="MajstorZaDeo" Association="ServisDBMF.Store.MajstorZaDeo">
+      <End Role="MajstorZa" EntitySet="MajstorZas" />
+      <End Role="Deo" EntitySet="Deos" />
+    </AssociationSet>
+    <AssociationSet Name="PopravljenPokvaren" Association="ServisDBMF.Store.PopravljenPokvaren">
+      <End Role="Popravljen" EntitySet="Popravljens" />
+      <End Role="Pokvaren" EntitySet="Pokvarens" />
+    </AssociationSet>
+    <AssociationSet Name="PopravljenMajstorZa" Association="ServisDBMF.Store.PopravljenMajstorZa">
+      <End Role="Popravljen" EntitySet="Popravljens" />
+      <End Role="MajstorZa" EntitySet="MajstorZas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dijagnosticar_inherits_Serviser" Association="ServisDBMF.Store.FK_Dijagnosticar_inherits_Serviser">
+      <End Role="Serviser" EntitySet="Servisers" />
+      <End Role="Dijagnosticar" EntitySet="Servisers_Dijagnosticar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Majstor_inherits_Serviser" Association="ServisDBMF.Store.FK_Majstor_inherits_Serviser">
+      <End Role="Serviser" EntitySet="Servisers" />
+      <End Role="Majstor" EntitySet="Servisers_Majstor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sus_inherits_Automobil" Association="ServisDBMF.Store.FK_Sus_inherits_Automobil">
+      <End Role="Automobil" EntitySet="Automobils" />
+      <End Role="Sus" EntitySet="Automobils_Sus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Elektricni_inherits_Automobil" Association="ServisDBMF.Store.FK_Elektricni_inherits_Automobil">
+      <End Role="Automobil" EntitySet="Automobils" />
+      <End Role="Elektricni" EntitySet="Automobils_Elektricni" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Servis">
+    <Key>
+      <PropertyRef Name="IDS" />
+    </Key>
+    <Property Name="IDS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazivS" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adresa" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servisers">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipServ" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ServisIDS" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Automobils">
+    <Key>
+      <PropertyRef Name="SASIJA" />
+    </Key>
+    <Property Name="SASIJA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Marka" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipMot" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ServisIDS" Type="int" Nullable="false" />
+    <Property Name="BrSK" Type="int" Nullable="false" />
+    <Property Name="DatSK" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pregleds">
+    <Key>
+      <PropertyRef Name="AutomobilSASIJA" />
+      <PropertyRef Name="DijagnosticarJMBG" />
+    </Key>
+    <Property Name="DatPre" Type="datetime" Nullable="false" />
+    <Property Name="Stanje" Type="bit" Nullable="false" />
+    <Property Name="AutomobilSASIJA" Type="int" Nullable="false" />
+    <Property Name="DijagnosticarJMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Deos">
+    <Key>
+      <PropertyRef Name="DEOID" />
+    </Key>
+    <Property Name="DEOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazivD" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pokvarens">
+    <Key>
+      <PropertyRef Name="PregledAutomobilSASIJA" />
+      <PropertyRef Name="PregledDijagnosticarJMBG" />
+      <PropertyRef Name="DeoDEOID" />
+    </Key>
+    <Property Name="PregledAutomobilSASIJA" Type="int" Nullable="false" />
+    <Property Name="PregledDijagnosticarJMBG" Type="int" Nullable="false" />
+    <Property Name="DeoDEOID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MajstorZas">
+    <Key>
+      <PropertyRef Name="DeoDEOID" />
+      <PropertyRef Name="MajstorJMBG" />
+    </Key>
+    <Property Name="MajstorJMBG" Type="int" Nullable="false" />
+    <Property Name="DeoDEOID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Popravljens">
+    <Key>
+      <PropertyRef Name="PokvarenPregledAutomobilSASIJA" />
+      <PropertyRef Name="PokvarenPregledDijagnosticarJMBG" />
+      <PropertyRef Name="PokvarenDeoDEOID" />
+      <PropertyRef Name="MajstorZaDeoDEOID" />
+      <PropertyRef Name="MajstorZaMajstorJMBG" />
+    </Key>
+    <Property Name="PokvarenPregledAutomobilSASIJA" Type="int" Nullable="false" />
+    <Property Name="PokvarenPregledDijagnosticarJMBG" Type="int" Nullable="false" />
+    <Property Name="PokvarenDeoDEOID" Type="int" Nullable="false" />
+    <Property Name="MajstorZaDeoDEOID" Type="int" Nullable="false" />
+    <Property Name="MajstorZaMajstorJMBG" Type="int" Nullable="false" />
+    <Property Name="DatPop" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servisers_Dijagnosticar">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servisers_Majstor">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Automobils_Sus">
+    <Key>
+      <PropertyRef Name="SASIJA" />
+    </Key>
+    <Property Name="Gorivo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SASIJA" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Automobils_Elektricni">
+    <Key>
+      <PropertyRef Name="SASIJA" />
+    </Key>
+    <Property Name="BrMot" Type="int" Nullable="false" />
+    <Property Name="SASIJA" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ServisServiser">
+    <End Role="Servis" Type="ServisDBMF.Store.Servis" Multiplicity="0..1" />
+    <End Role="Serviser" Type="ServisDBMF.Store.Servisers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servis">
+        <PropertyRef Name="IDS" />
+      </Principal>
+      <Dependent Role="Serviser">
+        <PropertyRef Name="ServisIDS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AutomobilServis">
+    <End Role="Automobil" Type="ServisDBMF.Store.Automobils" Multiplicity="*" />
+    <End Role="Servis" Type="ServisDBMF.Store.Servis" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Servis">
+        <PropertyRef Name="IDS" />
+      </Principal>
+      <Dependent Role="Automobil">
+        <PropertyRef Name="ServisIDS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PregledAutomobil">
+    <End Role="Pregled" Type="ServisDBMF.Store.Pregleds" Multiplicity="*" />
+    <End Role="Automobil" Type="ServisDBMF.Store.Automobils" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Automobil">
+        <PropertyRef Name="SASIJA" />
+      </Principal>
+      <Dependent Role="Pregled">
+        <PropertyRef Name="AutomobilSASIJA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PregledDijagnosticar">
+    <End Role="Pregled" Type="ServisDBMF.Store.Pregleds" Multiplicity="*" />
+    <End Role="Dijagnosticar" Type="ServisDBMF.Store.Servisers_Dijagnosticar" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Dijagnosticar">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Pregled">
+        <PropertyRef Name="DijagnosticarJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PokvarenPregled">
+    <End Role="Pokvaren" Type="ServisDBMF.Store.Pokvarens" Multiplicity="*" />
+    <End Role="Pregled" Type="ServisDBMF.Store.Pregleds" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Pregled">
+        <PropertyRef Name="AutomobilSASIJA" />
+        <PropertyRef Name="DijagnosticarJMBG" />
+      </Principal>
+      <Dependent Role="Pokvaren">
+        <PropertyRef Name="PregledAutomobilSASIJA" />
+        <PropertyRef Name="PregledDijagnosticarJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PokvarenDeo">
+    <End Role="Pokvaren" Type="ServisDBMF.Store.Pokvarens" Multiplicity="*" />
+    <End Role="Deo" Type="ServisDBMF.Store.Deos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Deo">
+        <PropertyRef Name="DEOID" />
+      </Principal>
+      <Dependent Role="Pokvaren">
+        <PropertyRef Name="DeoDEOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MajstorZaMajstor">
+    <End Role="MajstorZa" Type="ServisDBMF.Store.MajstorZas" Multiplicity="*" />
+    <End Role="Majstor" Type="ServisDBMF.Store.Servisers_Majstor" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Majstor">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="MajstorZa">
+        <PropertyRef Name="MajstorJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MajstorZaDeo">
+    <End Role="MajstorZa" Type="ServisDBMF.Store.MajstorZas" Multiplicity="*" />
+    <End Role="Deo" Type="ServisDBMF.Store.Deos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Deo">
+        <PropertyRef Name="DEOID" />
+      </Principal>
+      <Dependent Role="MajstorZa">
+        <PropertyRef Name="DeoDEOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PopravljenPokvaren">
+    <End Role="Popravljen" Type="ServisDBMF.Store.Popravljens" Multiplicity="*" />
+    <End Role="Pokvaren" Type="ServisDBMF.Store.Pokvarens" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Pokvaren">
+        <PropertyRef Name="PregledAutomobilSASIJA" />
+        <PropertyRef Name="PregledDijagnosticarJMBG" />
+        <PropertyRef Name="DeoDEOID" />
+      </Principal>
+      <Dependent Role="Popravljen">
+        <PropertyRef Name="PokvarenPregledAutomobilSASIJA" />
+        <PropertyRef Name="PokvarenPregledDijagnosticarJMBG" />
+        <PropertyRef Name="PokvarenDeoDEOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PopravljenMajstorZa">
+    <End Role="Popravljen" Type="ServisDBMF.Store.Popravljens" Multiplicity="*" />
+    <End Role="MajstorZa" Type="ServisDBMF.Store.MajstorZas" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="MajstorZa">
+        <PropertyRef Name="DeoDEOID" />
+        <PropertyRef Name="MajstorJMBG" />
+      </Principal>
+      <Dependent Role="Popravljen">
+        <PropertyRef Name="MajstorZaDeoDEOID" />
+        <PropertyRef Name="MajstorZaMajstorJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dijagnosticar_inherits_Serviser">
+    <End Role="Serviser" Type="ServisDBMF.Store.Servisers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Dijagnosticar" Type="ServisDBMF.Store.Servisers_Dijagnosticar" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Serviser">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Dijagnosticar">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Majstor_inherits_Serviser">
+    <End Role="Serviser" Type="ServisDBMF.Store.Servisers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Majstor" Type="ServisDBMF.Store.Servisers_Majstor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Serviser">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Majstor">
+        <PropertyRef Name="JMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sus_inherits_Automobil">
+    <End Role="Automobil" Type="ServisDBMF.Store.Automobils" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sus" Type="ServisDBMF.Store.Automobils_Sus" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Automobil">
+        <PropertyRef Name="SASIJA" />
+      </Principal>
+      <Dependent Role="Sus">
+        <PropertyRef Name="SASIJA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Elektricni_inherits_Automobil">
+    <End Role="Automobil" Type="ServisDBMF.Store.Automobils" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Elektricni" Type="ServisDBMF.Store.Automobils_Elektricni" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Automobil">
+        <PropertyRef Name="SASIJA" />
+      </Principal>
+      <Dependent Role="Elektricni">
+        <PropertyRef Name="SASIJA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ServisDBMF" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -304,13 +661,112 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="ServisDBMF" />
-        <Alias Key="Target" Value="ServisDBMF.Store" />
-        <EntityContainerMapping CdmEntityContainer="ServisDBMFContainer" StorageEntityContainer="ServisDBMFTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServisDBMFStoreContainer" CdmEntityContainer="ServisDBMFContainer">
+    <EntitySetMapping Name="Servis">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Servis)">
+        <MappingFragment StoreEntitySet="Servis">
+          <ScalarProperty Name="IDS" ColumnName="IDS" />
+          <ScalarProperty Name="NazivS" ColumnName="NazivS" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servisers">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Serviser)">
+        <MappingFragment StoreEntitySet="Servisers">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="TipServ" ColumnName="TipServ" />
+          <ScalarProperty Name="ServisIDS" ColumnName="ServisIDS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Dijagnosticar)">
+        <MappingFragment StoreEntitySet="Servisers_Dijagnosticar">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Majstor)">
+        <MappingFragment StoreEntitySet="Servisers_Majstor">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Automobils">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Automobil)">
+        <MappingFragment StoreEntitySet="Automobils">
+          <ScalarProperty Name="SASIJA" ColumnName="SASIJA" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="TipMot" ColumnName="TipMot" />
+          <ScalarProperty Name="ServisIDS" ColumnName="ServisIDS" />
+          <ScalarProperty Name="BrSK" ColumnName="BrSK" />
+          <ScalarProperty Name="DatSK" ColumnName="DatSK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Sus)">
+        <MappingFragment StoreEntitySet="Automobils_Sus">
+          <ScalarProperty Name="SASIJA" ColumnName="SASIJA" />
+          <ScalarProperty Name="Gorivo" ColumnName="Gorivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Elektricni)">
+        <MappingFragment StoreEntitySet="Automobils_Elektricni">
+          <ScalarProperty Name="SASIJA" ColumnName="SASIJA" />
+          <ScalarProperty Name="BrMot" ColumnName="BrMot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pregleds">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Pregled)">
+        <MappingFragment StoreEntitySet="Pregleds">
+          <ScalarProperty Name="AutomobilSASIJA" ColumnName="AutomobilSASIJA" />
+          <ScalarProperty Name="DijagnosticarJMBG" ColumnName="DijagnosticarJMBG" />
+          <ScalarProperty Name="DatPre" ColumnName="DatPre" />
+          <ScalarProperty Name="Stanje" ColumnName="Stanje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deos">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Deo)">
+        <MappingFragment StoreEntitySet="Deos">
+          <ScalarProperty Name="DEOID" ColumnName="DEOID" />
+          <ScalarProperty Name="NazivD" ColumnName="NazivD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pokvarens">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Pokvaren)">
+        <MappingFragment StoreEntitySet="Pokvarens">
+          <ScalarProperty Name="PregledAutomobilSASIJA" ColumnName="PregledAutomobilSASIJA" />
+          <ScalarProperty Name="PregledDijagnosticarJMBG" ColumnName="PregledDijagnosticarJMBG" />
+          <ScalarProperty Name="DeoDEOID" ColumnName="DeoDEOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MajstorZas">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.MajstorZa)">
+        <MappingFragment StoreEntitySet="MajstorZas">
+          <ScalarProperty Name="DeoDEOID" ColumnName="DeoDEOID" />
+          <ScalarProperty Name="MajstorJMBG" ColumnName="MajstorJMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Popravljens">
+      <EntityTypeMapping TypeName="IsTypeOf(ServisDBMF.Popravljen)">
+        <MappingFragment StoreEntitySet="Popravljens">
+          <ScalarProperty Name="PokvarenPregledAutomobilSASIJA" ColumnName="PokvarenPregledAutomobilSASIJA" />
+          <ScalarProperty Name="PokvarenPregledDijagnosticarJMBG" ColumnName="PokvarenPregledDijagnosticarJMBG" />
+          <ScalarProperty Name="PokvarenDeoDEOID" ColumnName="PokvarenDeoDEOID" />
+          <ScalarProperty Name="MajstorZaDeoDEOID" ColumnName="MajstorZaDeoDEOID" />
+          <ScalarProperty Name="MajstorZaMajstorJMBG" ColumnName="MajstorZaMajstorJMBG" />
+          <ScalarProperty Name="DatPop" ColumnName="DatPop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -324,6 +780,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
