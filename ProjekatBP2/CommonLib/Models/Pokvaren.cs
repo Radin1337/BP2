@@ -18,5 +18,8 @@ namespace CommonLib.Models
             PregledDijagnosticarSASIJA = pregledDijagnosticarSASIJA;
             DeoDEOID = deoDEOID;
         }
+
+        public Pregled Pregled { get; set; }
+        public Deo Deo { get; set; }
     }
 }

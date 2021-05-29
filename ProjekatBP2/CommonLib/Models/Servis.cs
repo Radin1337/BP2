@@ -10,14 +10,14 @@ namespace CommonLib.Models
     {
         public int IDS;
         public string NazivS;
-        public Adresa Adresa;
+        public string Adresa;
         public string Telefon;
 
         public Servis(int iDS, string nazivS, Adresa adresa, string telefon)
         {
             IDS = iDS;
             NazivS = nazivS;
-            Adresa = adresa;
+            Adresa = adresa.ToString();
             Telefon = telefon;
         }
     }

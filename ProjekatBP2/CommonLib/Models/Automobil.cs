@@ -24,5 +24,7 @@ namespace CommonLib.Models
             ServisIDS = servisIDS;
             TipMot = tipMot;
         }
+
+        public Servis Servis { get; set; }
     }
 }

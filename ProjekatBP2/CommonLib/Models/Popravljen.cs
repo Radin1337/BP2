@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonLib.Models
 {
-    public class Poporavljen
+    public class Popravljen
     {
         public int PokvarenPregledAutomobilSASIJA;
         public int PokvarenPregledDijagnosticarSASIJA;
@@ -15,7 +15,7 @@ namespace CommonLib.Models
         public int MajstorZaMajstorJMBG;
         public DateTime DatPop = new DateTime();
 
-        public Poporavljen(int pokvarenPregledAutomobilSASIJA, int pokvarenPregledDijagnosticarSASIJA, int pokvarenDeoDEOID, int majstorZaDeoDEOID, int majstorZaMajstorJMBG, DateTime datPop)
+        public Popravljen(int pokvarenPregledAutomobilSASIJA, int pokvarenPregledDijagnosticarSASIJA, int pokvarenDeoDEOID, int majstorZaDeoDEOID, int majstorZaMajstorJMBG, DateTime datPop)
         {
             PokvarenPregledAutomobilSASIJA = pokvarenPregledAutomobilSASIJA;
             PokvarenPregledDijagnosticarSASIJA = pokvarenPregledDijagnosticarSASIJA;
@@ -24,5 +24,8 @@ namespace CommonLib.Models
             MajstorZaMajstorJMBG = majstorZaMajstorJMBG;
             DatPop = datPop;
         }
+
+        public Pokvaren Pokvaren { get; set; }
+        public MajstorZa MajstorZa { get; set; }
     }
 }

@@ -16,5 +16,8 @@ namespace CommonLib.Models
             MajstorJMBG = majstorJMBG;
             DeoDEOID = deoDEOID;
         }
+
+        public Majstor Majstor { get; set; }
+        public Deo Deo { get; set; }
     }
 }

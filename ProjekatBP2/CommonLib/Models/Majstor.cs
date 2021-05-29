@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonLib.Models
 {
-    class Majstor : Serviser
+    public class Majstor : Serviser
     {
         public Majstor(int jMBG, string ime, string prezime, int? servisIDS, string tipServ = "") : base(jMBG, ime, prezime, servisIDS, tipServ)
         {

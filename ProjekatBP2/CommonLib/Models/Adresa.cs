@@ -18,5 +18,10 @@ namespace CommonLib.Models
             Ulica = u;
             Broj = b;
         }
+
+        public override string ToString()
+        {
+            return Mesto+"; "+Ulica+"; "+Broj;
+        }
     }
 }

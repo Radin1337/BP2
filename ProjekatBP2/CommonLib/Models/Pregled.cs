@@ -20,5 +20,8 @@ namespace CommonLib.Models
             AutomobilSASIJA = automobilSASIJA;
             DijagnosticarSASIJA = dijagnosticarSASIJA;
         }
+
+        public Dijagnosticar Dijagnosticar { get; set }
+        public Automobil Automobil { get; set; }
     }
 }
