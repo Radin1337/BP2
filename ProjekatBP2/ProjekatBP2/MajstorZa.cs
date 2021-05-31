@@ -20,7 +20,7 @@ namespace ProjekatBP2
             this.Popravljeni = new HashSet<Popravljen>();
         }
     
-        public int MajstorJMBG { get; set; }
+        public long MajstorJMBG { get; set; }
         public int DeoDEOID { get; set; }
     
         public virtual Majstor Majstor { get; set; }

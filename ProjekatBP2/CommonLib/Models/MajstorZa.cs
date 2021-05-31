@@ -8,16 +8,19 @@ namespace CommonLib.Models
 {
     public class MajstorZa
     {
-        public int MajstorJMBG;
+        public long MajstorJMBG;
         public int DeoDEOID;
 
-        public MajstorZa(int majstorJMBG, int deoDEOID)
+        public MajstorZa(long majstorJMBG, int deoDEOID)
         {
             MajstorJMBG = majstorJMBG;
             DeoDEOID = deoDEOID;
+            Popravljeni = new HashSet<Popravljen>();
         }
 
         public Majstor Majstor { get; set; }
         public Deo Deo { get; set; }
+
+        public ICollection<Popravljen> Popravljeni { get; set; }
     }
 }

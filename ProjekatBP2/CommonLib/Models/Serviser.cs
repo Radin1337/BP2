@@ -8,13 +8,13 @@ namespace CommonLib.Models
 {
     public class Serviser
     {
-        public int JMBG;
+        public long JMBG;
         public string Ime;
         public string Prezime;
         public string TipServ;
         public int? ServisIDS;
 
-        public Serviser(int jMBG, string ime, string prezime, int? servisIDS, string tipServ="")
+        public Serviser(long jMBG, string ime, string prezime, int? servisIDS, string tipServ="")
         {
             JMBG = jMBG;
             Ime = ime;

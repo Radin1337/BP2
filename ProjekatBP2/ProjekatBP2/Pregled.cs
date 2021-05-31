@@ -22,8 +22,8 @@ namespace ProjekatBP2
     
         public System.DateTime DatPre { get; set; }
         public bool Stanje { get; set; }
-        public int AutomobilSASIJA { get; set; }
-        public int DijagnosticarJMBG { get; set; }
+        public long AutomobilSASIJA { get; set; }
+        public long DijagnosticarJMBG { get; set; }
     
         public virtual Automobil Automobil { get; set; }
         public virtual Dijagnosticar Dijagnosticar { get; set; }

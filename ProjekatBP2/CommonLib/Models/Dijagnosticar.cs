@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 namespace CommonLib.Models
 {
     public class Dijagnosticar : Serviser
-    {
-        public Dijagnosticar(int jMBG, string ime, string prezime, int? servisIDS, string tipServ = "") : base(jMBG, ime, prezime, servisIDS, tipServ)
+    { 
+        public Dijagnosticar(long jMBG, string ime, string prezime, int? servisIDS, string tipServ = "") : base(jMBG, ime, prezime, servisIDS, tipServ)
         {
+            Pregledi = new HashSet<Pregled>();
         }
+
+        public ICollection<Pregled> Pregledi { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace ProjekatBP2
             this.Pregledi = new HashSet<Pregled>();
         }
     
-        public int SASIJA { get; set; }
+        public long SASIJA { get; set; }
         public string Marka { get; set; }
         public string TipMot { get; set; }
         public int ServisIDS { get; set; }

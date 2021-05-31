@@ -88,7 +88,7 @@
     <Key>
       <PropertyRef Name="JMBG" />
     </Key>
-    <Property Name="JMBG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JMBG" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TipServ" Type="nvarchar(max)" Nullable="false" />
@@ -98,7 +98,7 @@
     <Key>
       <PropertyRef Name="SASIJA" />
     </Key>
-    <Property Name="SASIJA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SASIJA" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Marka" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TipMot" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ServisIDS" Type="int" Nullable="false" />
@@ -112,8 +112,8 @@
     </Key>
     <Property Name="DatPre" Type="datetime" Nullable="false" />
     <Property Name="Stanje" Type="bit" Nullable="false" />
-    <Property Name="AutomobilSASIJA" Type="int" Nullable="false" />
-    <Property Name="DijagnosticarJMBG" Type="int" Nullable="false" />
+    <Property Name="AutomobilSASIJA" Type="bigint" Nullable="false" />
+    <Property Name="DijagnosticarJMBG" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Deos">
     <Key>
@@ -128,8 +128,8 @@
       <PropertyRef Name="PregledDijagnosticarJMBG" />
       <PropertyRef Name="DeoDEOID" />
     </Key>
-    <Property Name="PregledAutomobilSASIJA" Type="int" Nullable="false" />
-    <Property Name="PregledDijagnosticarJMBG" Type="int" Nullable="false" />
+    <Property Name="PregledAutomobilSASIJA" Type="bigint" Nullable="false" />
+    <Property Name="PregledDijagnosticarJMBG" Type="bigint" Nullable="false" />
     <Property Name="DeoDEOID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MajstorZas">
@@ -137,7 +137,7 @@
       <PropertyRef Name="DeoDEOID" />
       <PropertyRef Name="MajstorJMBG" />
     </Key>
-    <Property Name="MajstorJMBG" Type="int" Nullable="false" />
+    <Property Name="MajstorJMBG" Type="bigint" Nullable="false" />
     <Property Name="DeoDEOID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Popravljens">
@@ -148,38 +148,38 @@
       <PropertyRef Name="MajstorZaDeoDEOID" />
       <PropertyRef Name="MajstorZaMajstorJMBG" />
     </Key>
-    <Property Name="PokvarenPregledAutomobilSASIJA" Type="int" Nullable="false" />
-    <Property Name="PokvarenPregledDijagnosticarJMBG" Type="int" Nullable="false" />
+    <Property Name="PokvarenPregledAutomobilSASIJA" Type="bigint" Nullable="false" />
+    <Property Name="PokvarenPregledDijagnosticarJMBG" Type="bigint" Nullable="false" />
     <Property Name="PokvarenDeoDEOID" Type="int" Nullable="false" />
     <Property Name="MajstorZaDeoDEOID" Type="int" Nullable="false" />
-    <Property Name="MajstorZaMajstorJMBG" Type="int" Nullable="false" />
+    <Property Name="MajstorZaMajstorJMBG" Type="bigint" Nullable="false" />
     <Property Name="DatPop" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Servisers_Dijagnosticar">
     <Key>
       <PropertyRef Name="JMBG" />
     </Key>
-    <Property Name="JMBG" Type="int" Nullable="false" />
+    <Property Name="JMBG" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Servisers_Majstor">
     <Key>
       <PropertyRef Name="JMBG" />
     </Key>
-    <Property Name="JMBG" Type="int" Nullable="false" />
+    <Property Name="JMBG" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Automobils_Sus">
     <Key>
       <PropertyRef Name="SASIJA" />
     </Key>
     <Property Name="Gorivo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SASIJA" Type="int" Nullable="false" />
+    <Property Name="SASIJA" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Automobils_Elektricni">
     <Key>
       <PropertyRef Name="SASIJA" />
     </Key>
     <Property Name="BrMot" Type="int" Nullable="false" />
-    <Property Name="SASIJA" Type="int" Nullable="false" />
+    <Property Name="SASIJA" Type="bigint" Nullable="false" />
   </EntityType>
   <Association Name="ServisServiser">
     <End Role="Servis" Type="ServisDBMF.Store.Servis" Multiplicity="0..1" />
@@ -434,7 +434,7 @@
           <Key>
             <PropertyRef Name="JMBG" />
           </Key>
-          <Property Name="JMBG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JMBG" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ime" Type="String" Nullable="false" />
           <Property Name="Prezime" Type="String" Nullable="false" />
           <Property Name="TipServ" Type="String" Nullable="false" />
@@ -463,7 +463,7 @@
           <Key>
             <PropertyRef Name="SASIJA" />
           </Key>
-          <Property Name="SASIJA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SASIJA" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Marka" Type="String" Nullable="false" />
           <Property Name="TipMot" Type="String" Nullable="false" />
           <NavigationProperty Name="Servis" Relationship="ServisDBMF.AutomobilServis" FromRole="Automobil" ToRole="Servis" />
@@ -498,9 +498,9 @@
           <Property Name="DatPre" Type="DateTime" Nullable="false" />
           <Property Name="Stanje" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Automobil" Relationship="ServisDBMF.PregledAutomobil" FromRole="Pregled" ToRole="Automobil" />
-          <Property Name="AutomobilSASIJA" Type="Int32" Nullable="false" />
+          <Property Name="AutomobilSASIJA" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Dijagnosticar" Relationship="ServisDBMF.PregledDijagnosticar" FromRole="Pregled" ToRole="Dijagnosticar" />
-          <Property Name="DijagnosticarJMBG" Type="Int32" Nullable="false" />
+          <Property Name="DijagnosticarJMBG" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Pokvareni" Relationship="ServisDBMF.PokvarenPregled" FromRole="Pregled" ToRole="Pokvaren" />
         </EntityType>
         <Association Name="PregledAutomobil">
@@ -543,8 +543,8 @@
             <PropertyRef Name="DeoDEOID" />
           </Key>
           <NavigationProperty Name="Pregled" Relationship="ServisDBMF.PokvarenPregled" FromRole="Pokvaren" ToRole="Pregled" />
-          <Property Name="PregledAutomobilSASIJA" Type="Int32" Nullable="false" />
-          <Property Name="PregledDijagnosticarJMBG" Type="Int32" Nullable="false" />
+          <Property Name="PregledAutomobilSASIJA" Type="Int64" Nullable="false" />
+          <Property Name="PregledDijagnosticarJMBG" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Deo" Relationship="ServisDBMF.PokvarenDeo" FromRole="Pokvaren" ToRole="Deo" />
           <Property Name="DeoDEOID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Popravljeni" Relationship="ServisDBMF.PopravljenPokvaren" FromRole="Pokvaren" ToRole="Popravljen" />
@@ -581,7 +581,7 @@
             <PropertyRef Name="MajstorJMBG" />
           </Key>
           <NavigationProperty Name="Majstor" Relationship="ServisDBMF.MajstorZaMajstor" FromRole="MajstorZa" ToRole="Majstor" />
-          <Property Name="MajstorJMBG" Type="Int32" Nullable="false" />
+          <Property Name="MajstorJMBG" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Deo" Relationship="ServisDBMF.MajstorZaDeo" FromRole="MajstorZa" ToRole="Deo" />
           <Property Name="DeoDEOID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Popravljeni" Relationship="ServisDBMF.PopravljenMajstorZa" FromRole="MajstorZa" ToRole="Popravljen" />
@@ -619,12 +619,12 @@
             <PropertyRef Name="MajstorZaMajstorJMBG" />
           </Key>
           <NavigationProperty Name="Pokvaren" Relationship="ServisDBMF.PopravljenPokvaren" FromRole="Popravljen" ToRole="Pokvaren" />
-          <Property Name="PokvarenPregledAutomobilSASIJA" Type="Int32" Nullable="false" />
-          <Property Name="PokvarenPregledDijagnosticarJMBG" Type="Int32" Nullable="false" />
+          <Property Name="PokvarenPregledAutomobilSASIJA" Type="Int64" Nullable="false" />
+          <Property Name="PokvarenPregledDijagnosticarJMBG" Type="Int64" Nullable="false" />
           <Property Name="PokvarenDeoDEOID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MajstorZa" Relationship="ServisDBMF.PopravljenMajstorZa" FromRole="Popravljen" ToRole="MajstorZa" />
           <Property Name="MajstorZaDeoDEOID" Type="Int32" Nullable="false" />
-          <Property Name="MajstorZaMajstorJMBG" Type="Int32" Nullable="false" />
+          <Property Name="MajstorZaMajstorJMBG" Type="Int64" Nullable="false" />
           <Property Name="DatPop" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="PopravljenPokvaren">

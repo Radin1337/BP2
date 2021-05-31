@@ -15,6 +15,11 @@ namespace CommonLib.Models
         {
             DEOID = dEOID;
             NazivD = nazivD;
+            Pokvareni = new HashSet<Pokvaren>();
+            MajstoriZa = new HashSet<MajstorZa>();
         }
+
+        public ICollection<Pokvaren> Pokvareni { get; set; }
+        public ICollection<MajstorZa> MajstoriZa { get; set; }
     }
 }

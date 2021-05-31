@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/29/2021 18:50:39
+-- Date Created: 05/31/2021 15:37:40
 -- Generated from EDMX file: C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\ProjekatBP2\ServisDBMF.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,89 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ServisServiser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Servisers] DROP CONSTRAINT [FK_ServisServiser];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AutomobilServis]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Automobils] DROP CONSTRAINT [FK_AutomobilServis];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PregledAutomobil]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pregleds] DROP CONSTRAINT [FK_PregledAutomobil];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PregledDijagnosticar]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pregleds] DROP CONSTRAINT [FK_PregledDijagnosticar];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PokvarenPregled]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pokvarens] DROP CONSTRAINT [FK_PokvarenPregled];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PokvarenDeo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pokvarens] DROP CONSTRAINT [FK_PokvarenDeo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MajstorZaMajstor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MajstorZas] DROP CONSTRAINT [FK_MajstorZaMajstor];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MajstorZaDeo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MajstorZas] DROP CONSTRAINT [FK_MajstorZaDeo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PopravljenPokvaren]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Popravljens] DROP CONSTRAINT [FK_PopravljenPokvaren];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PopravljenMajstorZa]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Popravljens] DROP CONSTRAINT [FK_PopravljenMajstorZa];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Dijagnosticar_inherits_Serviser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Servisers_Dijagnosticar] DROP CONSTRAINT [FK_Dijagnosticar_inherits_Serviser];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Majstor_inherits_Serviser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Servisers_Majstor] DROP CONSTRAINT [FK_Majstor_inherits_Serviser];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Sus_inherits_Automobil]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Automobils_Sus] DROP CONSTRAINT [FK_Sus_inherits_Automobil];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Elektricni_inherits_Automobil]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Automobils_Elektricni] DROP CONSTRAINT [FK_Elektricni_inherits_Automobil];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Servis]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Servis];
+GO
+IF OBJECT_ID(N'[dbo].[Servisers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Servisers];
+GO
+IF OBJECT_ID(N'[dbo].[Automobils]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Automobils];
+GO
+IF OBJECT_ID(N'[dbo].[Pregleds]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Pregleds];
+GO
+IF OBJECT_ID(N'[dbo].[Deos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Deos];
+GO
+IF OBJECT_ID(N'[dbo].[Pokvarens]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Pokvarens];
+GO
+IF OBJECT_ID(N'[dbo].[MajstorZas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MajstorZas];
+GO
+IF OBJECT_ID(N'[dbo].[Popravljens]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Popravljens];
+GO
+IF OBJECT_ID(N'[dbo].[Servisers_Dijagnosticar]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Servisers_Dijagnosticar];
+GO
+IF OBJECT_ID(N'[dbo].[Servisers_Majstor]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Servisers_Majstor];
+GO
+IF OBJECT_ID(N'[dbo].[Automobils_Sus]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Automobils_Sus];
+GO
+IF OBJECT_ID(N'[dbo].[Automobils_Elektricni]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Automobils_Elektricni];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -38,7 +116,7 @@ GO
 
 -- Creating table 'Servisers'
 CREATE TABLE [dbo].[Servisers] (
-    [JMBG] int IDENTITY(1,1) NOT NULL,
+    [JMBG] bigint IDENTITY(1,1) NOT NULL,
     [Ime] nvarchar(max)  NOT NULL,
     [Prezime] nvarchar(max)  NOT NULL,
     [TipServ] nvarchar(max)  NOT NULL,
@@ -48,7 +126,7 @@ GO
 
 -- Creating table 'Automobils'
 CREATE TABLE [dbo].[Automobils] (
-    [SASIJA] int IDENTITY(1,1) NOT NULL,
+    [SASIJA] bigint IDENTITY(1,1) NOT NULL,
     [Marka] nvarchar(max)  NOT NULL,
     [TipMot] nvarchar(max)  NOT NULL,
     [ServisIDS] int  NOT NULL,
@@ -61,8 +139,8 @@ GO
 CREATE TABLE [dbo].[Pregleds] (
     [DatPre] datetime  NOT NULL,
     [Stanje] bit  NOT NULL,
-    [AutomobilSASIJA] int  NOT NULL,
-    [DijagnosticarJMBG] int  NOT NULL
+    [AutomobilSASIJA] bigint  NOT NULL,
+    [DijagnosticarJMBG] bigint  NOT NULL
 );
 GO
 
@@ -75,53 +153,53 @@ GO
 
 -- Creating table 'Pokvarens'
 CREATE TABLE [dbo].[Pokvarens] (
-    [PregledAutomobilSASIJA] int  NOT NULL,
-    [PregledDijagnosticarJMBG] int  NOT NULL,
+    [PregledAutomobilSASIJA] bigint  NOT NULL,
+    [PregledDijagnosticarJMBG] bigint  NOT NULL,
     [DeoDEOID] int  NOT NULL
 );
 GO
 
 -- Creating table 'MajstorZas'
 CREATE TABLE [dbo].[MajstorZas] (
-    [MajstorJMBG] int  NOT NULL,
+    [MajstorJMBG] bigint  NOT NULL,
     [DeoDEOID] int  NOT NULL
 );
 GO
 
 -- Creating table 'Popravljens'
 CREATE TABLE [dbo].[Popravljens] (
-    [PokvarenPregledAutomobilSASIJA] int  NOT NULL,
-    [PokvarenPregledDijagnosticarJMBG] int  NOT NULL,
+    [PokvarenPregledAutomobilSASIJA] bigint  NOT NULL,
+    [PokvarenPregledDijagnosticarJMBG] bigint  NOT NULL,
     [PokvarenDeoDEOID] int  NOT NULL,
     [MajstorZaDeoDEOID] int  NOT NULL,
-    [MajstorZaMajstorJMBG] int  NOT NULL,
+    [MajstorZaMajstorJMBG] bigint  NOT NULL,
     [DatPop] datetime  NOT NULL
 );
 GO
 
 -- Creating table 'Servisers_Dijagnosticar'
 CREATE TABLE [dbo].[Servisers_Dijagnosticar] (
-    [JMBG] int  NOT NULL
+    [JMBG] bigint  NOT NULL
 );
 GO
 
 -- Creating table 'Servisers_Majstor'
 CREATE TABLE [dbo].[Servisers_Majstor] (
-    [JMBG] int  NOT NULL
+    [JMBG] bigint  NOT NULL
 );
 GO
 
 -- Creating table 'Automobils_Sus'
 CREATE TABLE [dbo].[Automobils_Sus] (
     [Gorivo] nvarchar(max)  NOT NULL,
-    [SASIJA] int  NOT NULL
+    [SASIJA] bigint  NOT NULL
 );
 GO
 
 -- Creating table 'Automobils_Elektricni'
 CREATE TABLE [dbo].[Automobils_Elektricni] (
     [BrMot] int  NOT NULL,
-    [SASIJA] int  NOT NULL
+    [SASIJA] bigint  NOT NULL
 );
 GO
 

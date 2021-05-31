@@ -10,18 +10,21 @@ namespace CommonLib.Models
     {
         public DateTime DatPre = new DateTime();
         public bool Stanje;
-        public int AutomobilSASIJA;
-        public int DijagnosticarSASIJA;
+        public long AutomobilSASIJA;
+        public long DijagnosticarJMBG;
 
-        public Pregled(int automobilSASIJA, int dijagnosticarSASIJA, DateTime datPre, bool stanje)
+        public Pregled(long automobilSASIJA, long dijagnosticarJMBG, DateTime datPre, bool stanje)
         {
             DatPre = datPre;
             Stanje = stanje;
             AutomobilSASIJA = automobilSASIJA;
-            DijagnosticarSASIJA = dijagnosticarSASIJA;
+            DijagnosticarJMBG = dijagnosticarJMBG;
+            Pokvareni = new HashSet<Pokvaren>();
         }
 
-        public Dijagnosticar Dijagnosticar { get; set }
+        public Dijagnosticar Dijagnosticar { get; set; }
         public Automobil Automobil { get; set; }
+
+        public ICollection<Pokvaren> Pokvareni { get; set; }
     }
 }

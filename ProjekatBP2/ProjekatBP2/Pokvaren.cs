@@ -20,8 +20,8 @@ namespace ProjekatBP2
             this.Popravljeni = new HashSet<Popravljen>();
         }
     
-        public int PregledAutomobilSASIJA { get; set; }
-        public int PregledDijagnosticarJMBG { get; set; }
+        public long PregledAutomobilSASIJA { get; set; }
+        public long PregledDijagnosticarJMBG { get; set; }
         public int DeoDEOID { get; set; }
     
         public virtual Pregled Pregled { get; set; }

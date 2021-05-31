@@ -8,17 +8,17 @@ namespace CommonLib.Models
 {
     public class Popravljen
     {
-        public int PokvarenPregledAutomobilSASIJA;
-        public int PokvarenPregledDijagnosticarSASIJA;
+        public long PokvarenPregledAutomobilSASIJA;
+        public long PokvarenPregledDijagnosticarJMBG;
         public int PokvarenDeoDEOID;
         public int MajstorZaDeoDEOID;
-        public int MajstorZaMajstorJMBG;
+        public long MajstorZaMajstorJMBG;
         public DateTime DatPop = new DateTime();
 
-        public Popravljen(int pokvarenPregledAutomobilSASIJA, int pokvarenPregledDijagnosticarSASIJA, int pokvarenDeoDEOID, int majstorZaDeoDEOID, int majstorZaMajstorJMBG, DateTime datPop)
+        public Popravljen(long pokvarenPregledAutomobilSASIJA, long pokvarenPregledDijagnosticarJMBG, int pokvarenDeoDEOID, int majstorZaDeoDEOID, long majstorZaMajstorJMBG, DateTime datPop)
         {
             PokvarenPregledAutomobilSASIJA = pokvarenPregledAutomobilSASIJA;
-            PokvarenPregledDijagnosticarSASIJA = pokvarenPregledDijagnosticarSASIJA;
+            PokvarenPregledDijagnosticarJMBG = pokvarenPregledDijagnosticarJMBG;
             PokvarenDeoDEOID = pokvarenDeoDEOID;
             MajstorZaDeoDEOID = majstorZaDeoDEOID;
             MajstorZaMajstorJMBG = majstorZaMajstorJMBG;

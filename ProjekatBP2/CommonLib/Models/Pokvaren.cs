@@ -8,18 +8,21 @@ namespace CommonLib.Models
 {
     public class Pokvaren
     {
-        public int PregledAutomobilSASIJA;
-        public int PregledDijagnosticarSASIJA;
+        public long PregledAutomobilSASIJA;
+        public long PregledDijagnosticarJMBG;
         public int DeoDEOID;
 
-        public Pokvaren(int pregledAutomobilSASIJA, int pregledDijagnosticarSASIJA, int deoDEOID)
+        public Pokvaren(long pregledAutomobilSASIJA, long pregledDijagnosticarJMBG, int deoDEOID)
         {
             PregledAutomobilSASIJA = pregledAutomobilSASIJA;
-            PregledDijagnosticarSASIJA = pregledDijagnosticarSASIJA;
+            PregledDijagnosticarJMBG = pregledDijagnosticarJMBG;
             DeoDEOID = deoDEOID;
+            Popravljeni = new HashSet<Popravljen>();
         }
 
         public Pregled Pregled { get; set; }
         public Deo Deo { get; set; }
+
+        public ICollection<Popravljen> Popravljeni { get; set; }
     }
 }

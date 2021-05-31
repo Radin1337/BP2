@@ -14,7 +14,7 @@ namespace ProjekatBP2
     
     public partial class Serviser
     {
-        public int JMBG { get; set; }
+        public long JMBG { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string TipServ { get; set; }

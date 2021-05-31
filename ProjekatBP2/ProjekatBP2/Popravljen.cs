@@ -14,11 +14,11 @@ namespace ProjekatBP2
     
     public partial class Popravljen
     {
-        public int PokvarenPregledAutomobilSASIJA { get; set; }
-        public int PokvarenPregledDijagnosticarJMBG { get; set; }
+        public long PokvarenPregledAutomobilSASIJA { get; set; }
+        public long PokvarenPregledDijagnosticarJMBG { get; set; }
         public int PokvarenDeoDEOID { get; set; }
         public int MajstorZaDeoDEOID { get; set; }
-        public int MajstorZaMajstorJMBG { get; set; }
+        public long MajstorZaMajstorJMBG { get; set; }
         public System.DateTime DatPop { get; set; }
     
         public virtual Pokvaren Pokvaren { get; set; }

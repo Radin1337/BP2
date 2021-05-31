@@ -19,6 +19,11 @@ namespace CommonLib.Models
             NazivS = nazivS;
             Adresa = adresa.ToString();
             Telefon = telefon;
+            Automobili = new HashSet<Automobil>();
+            Serviseri = new HashSet<Serviser>();
         }
+
+        public ICollection<Automobil> Automobili { get; set; }
+        public ICollection<Serviser> Serviseri { get; set; }
     }
 }

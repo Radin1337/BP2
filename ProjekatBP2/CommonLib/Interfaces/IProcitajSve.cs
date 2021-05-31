@@ -7,6 +7,7 @@ using System.ServiceModel;
 using CommonLib.Models;
 namespace CommonLib.Interfaces
 {
+    [ServiceContract]
     public interface IProcitajSve
     {
         [OperationContract]

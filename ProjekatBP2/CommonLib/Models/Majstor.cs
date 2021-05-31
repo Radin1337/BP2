@@ -8,8 +8,11 @@ namespace CommonLib.Models
 {
     public class Majstor : Serviser
     {
-        public Majstor(int jMBG, string ime, string prezime, int? servisIDS, string tipServ = "") : base(jMBG, ime, prezime, servisIDS, tipServ)
+        public Majstor(long jMBG, string ime, string prezime, int? servisIDS, string tipServ = "") : base(jMBG, ime, prezime, servisIDS, tipServ)
         {
+            MajstorZa = new HashSet<MajstorZa>();
         }
+
+        public ICollection<MajstorZa> MajstorZa {get;set;}
     }
 }

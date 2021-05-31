@@ -8,14 +8,14 @@ namespace CommonLib.Models
 {
     public class Automobil
     {
-        public int SASIJA;
+        public long SASIJA;
         public string Marka;
         public int BrSK;
-        public int DatSK;
+        public DateTime DatSK = new DateTime();
         public int ServisIDS;
         public string TipMot;
 
-        public Automobil(int sASIJA, string marka, int brSK, int datSK, int servisIDS, string tipMot="")
+        public Automobil(long sASIJA, string marka, int brSK, DateTime datSK, int servisIDS, string tipMot="")
         {
             SASIJA = sASIJA;
             Marka = marka;
@@ -23,8 +23,11 @@ namespace CommonLib.Models
             DatSK = datSK;
             ServisIDS = servisIDS;
             TipMot = tipMot;
+            Pregledi = new HashSet<Pregled>();
         }
 
         public Servis Servis { get; set; }
+
+        public ICollection<Pregled> Pregledi { get; set; }
     }
 }
