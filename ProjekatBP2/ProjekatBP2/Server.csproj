@@ -70,6 +70,8 @@
     <Compile Include="MajstorZa.cs">
       <DependentUpon>ServisDBMF.tt</DependentUpon>
     </Compile>
+    <Compile Include="Managers\ServiserMan.cs" />
+    <Compile Include="Managers\ServisMan.cs" />
     <Compile Include="Pokvaren.cs">
       <DependentUpon>ServisDBMF.tt</DependentUpon>
     </Compile>
@@ -132,6 +134,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{277b48ee-ff6d-461c-8185-0c7e03482f99}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

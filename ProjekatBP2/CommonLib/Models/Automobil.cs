@@ -15,7 +15,7 @@ namespace CommonLib.Models
         public int ServisIDS;
         public string TipMot;
 
-        public Automobil(long sASIJA, string marka, int brSK, DateTime datSK, int servisIDS, string tipMot="")
+        public Automobil(long sASIJA, string marka, int brSK, DateTime datSK, int servisIDS, string tipMot)
         {
             SASIJA = sASIJA;
             Marka = marka;

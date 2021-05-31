@@ -14,7 +14,7 @@ namespace CommonLib.Models
         public string TipServ;
         public int? ServisIDS;
 
-        public Serviser(long jMBG, string ime, string prezime, int? servisIDS, string tipServ="")
+        public Serviser(long jMBG, string ime, string prezime, int? servisIDS, string tipServ)
         {
             JMBG = jMBG;
             Ime = ime;

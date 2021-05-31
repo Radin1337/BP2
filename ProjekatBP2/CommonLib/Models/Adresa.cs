@@ -21,7 +21,7 @@ namespace CommonLib.Models
 
         public override string ToString()
         {
-            return Mesto+"; "+Ulica+"; "+Broj;
+            return Mesto+";"+Ulica+";"+Broj;
         }
     }
 }

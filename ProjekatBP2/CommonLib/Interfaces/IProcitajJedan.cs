@@ -12,28 +12,28 @@ namespace CommonLib.Interfaces
     public interface IProcitajJedan
     {
         [OperationContract]
-        void ProcitajServis(Servis s);
+        Servis ProcitajServis(int ids);
         [OperationContract]
-        void ProcitajServisera(Serviser s);
+        Serviser ProcitajServisera(long jmbg);
         [OperationContract]
-        void ProcitajMajstora(Majstor m);
+        Majstor ProcitajMajstora(long jmbg);
         [OperationContract]
-        void ProcitajDijagnosticara(Dijagnosticar d);
+        Dijagnosticar ProcitajDijagnosticara(long jmbg);
         [OperationContract]
-        void ProcitajAutomobil(Automobil a);
+        Automobil ProcitajAutomobil(long sasija);
         [OperationContract]
-        void ProcitajSus(Sus s);
+        Sus ProcitajSus(long sasija);
         [OperationContract]
-        void ProcitajElektricni(Elektricni e);
+        Elektricni ProcitajElektricni(long sasija);
         [OperationContract]
-        void ProcitajPregled(Pregled p);
+        Pregled ProcitajPregled(long sasija, long jmbg);
         [OperationContract]
-        void ProcitajPokvaren(Pokvaren p);
+        Pokvaren ProcitajPokvaren(long sasija, long jmbg,int deoid);
         [OperationContract]
-        void ProcitajDeo(Deo d);
+        Deo ProcitajDeo(int deoid);
         [OperationContract]
-        void ProcitajPopravljen(Popravljen p);
+        Popravljen ProcitajPopravljen(long sasija, long jmbg, int deoid,long jmbgg, int deoidd);
         [OperationContract]
-        void ProcitajMajstoraZa(MajstorZa m);
+        MajstorZa ProcitajMajstoraZa(long jmbg, int deoid);
     }
 }

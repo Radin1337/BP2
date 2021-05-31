@@ -9,7 +9,7 @@ namespace CommonLib.Models
     public class Elektricni : Automobil
     {
         public int BrMot;
-        public Elektricni(int brMot,int sASIJA, string marka, int brSK, int datSK, int servisIDS, string tipMot = "") : base(sASIJA, marka, brSK, datSK, servisIDS, tipMot)
+        public Elektricni(int brMot,int sASIJA, string marka, int brSK, DateTime datSK, int servisIDS, string tipMot = "Elektricni") : base(sASIJA, marka, brSK, datSK, servisIDS, tipMot)
         {
             BrMot = brMot;
         }
