@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,8 +71,15 @@
     <Compile Include="MajstorZa.cs">
       <DependentUpon>ServisDBMF.tt</DependentUpon>
     </Compile>
-    <Compile Include="Managers\ServiserMan.cs" />
-    <Compile Include="Managers\ServisMan.cs" />
+    <Compile Include="Managers\AutomobilCRUD.cs" />
+    <Compile Include="Managers\DeoCRUD.cs" />
+    <Compile Include="Managers\MajstorZaCRUD.cs" />
+    <Compile Include="Managers\PokvarenCRUD.cs" />
+    <Compile Include="Managers\PopravljenCRUD.cs" />
+    <Compile Include="Managers\PregledCRUD.cs" />
+    <Compile Include="Managers\ServiserCRUD.cs" />
+    <Compile Include="Managers\ServisCRUD.cs" />
+    <Compile Include="Managers\ManageCRUD.cs" />
     <Compile Include="Pokvaren.cs">
       <DependentUpon>ServisDBMF.tt</DependentUpon>
     </Compile>
@@ -83,6 +91,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SveOperacije.cs" />
     <Compile Include="Servis.cs">
       <DependentUpon>ServisDBMF.tt</DependentUpon>
     </Compile>
@@ -141,5 +150,6 @@
       <Name>CommonLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

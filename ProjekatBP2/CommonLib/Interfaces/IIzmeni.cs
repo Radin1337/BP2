@@ -12,28 +12,28 @@ namespace CommonLib.Interfaces
     public interface IIzmeni
     {
         [OperationContract]
-        void IzmeniServis(Servis s);
+        bool IzmeniServis(Servis s);
         [OperationContract]
-        void IzmeniServisera(Serviser s);
+        bool IzmeniServisera(Serviser s);
         [OperationContract]
-        void IzmeniMajstora(Majstor m);
+        bool IzmeniMajstora(Majstor m);
         [OperationContract]
-        void IzmeniDijagnosticara(Dijagnosticar d);
+        bool IzmeniDijagnosticara(Dijagnosticar d);
         [OperationContract]
-        void IzmeniAutomobil(Automobil a);
+        bool IzmeniAutomobil(Automobil a);
         [OperationContract]
-        void IzmeniSus(Sus s);
+        bool IzmeniSus(Sus s);
         [OperationContract]
-        void IzmeniElektricni(Elektricni e);
+        bool IzmeniElektricni(Elektricni e);
         [OperationContract]
-        void IzmeniPregled(Pregled p);
+        bool IzmeniPregled(Pregled p);
         [OperationContract]
-        void IzmeniPokvaren(Pokvaren p);
+        bool IzmeniPokvaren(Pokvaren p);
         [OperationContract]
-        void IzmeniDeo(Deo d);
+        bool IzmeniDeo(Deo d);
         [OperationContract]
-        void IzmeniPopravljen(Popravljen p);
+        bool IzmeniPopravljen(Popravljen p);
         [OperationContract]
-        void IzmeniMajstoraZa(MajstorZa m);
+        bool IzmeniMajstoraZa(MajstorZa m);
     }
 }

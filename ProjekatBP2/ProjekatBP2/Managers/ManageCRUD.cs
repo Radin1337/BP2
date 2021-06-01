@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjekatBP2.Managers
 {
-    public class SveCRUD
+    public class ManageCRUD
     {
         public ServisCRUD ServisCRUD { get; set; }
         public AutomobilCRUD AutomobilCRUD { get; set; }
@@ -17,7 +17,7 @@ namespace ProjekatBP2.Managers
         public DeoCRUD DeoCRUD { get; set; }
         public MajstorZaCRUD MajstorZaCRUD { get; set; }
 
-        public SveCRUD(ServisDBMFContainer dbContext)
+        public ManageCRUD(ServisDBMFContainer dbContext)
         {
             ServisCRUD = new ServisCRUD(dbContext);
             AutomobilCRUD = new AutomobilCRUD(dbContext);

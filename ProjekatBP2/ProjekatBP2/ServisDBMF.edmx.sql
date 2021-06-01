@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/31/2021 15:37:40
+-- Date Created: 06/01/2021 13:25:15
 -- Generated from EDMX file: C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\ProjekatBP2\ServisDBMF.edmx
 -- --------------------------------------------------
 
@@ -116,7 +116,7 @@ GO
 
 -- Creating table 'Servisers'
 CREATE TABLE [dbo].[Servisers] (
-    [JMBG] bigint IDENTITY(1,1) NOT NULL,
+    [JMBG] bigint  NOT NULL,
     [Ime] nvarchar(max)  NOT NULL,
     [Prezime] nvarchar(max)  NOT NULL,
     [TipServ] nvarchar(max)  NOT NULL,
@@ -126,7 +126,7 @@ GO
 
 -- Creating table 'Automobils'
 CREATE TABLE [dbo].[Automobils] (
-    [SASIJA] bigint IDENTITY(1,1) NOT NULL,
+    [SASIJA] bigint  NOT NULL,
     [Marka] nvarchar(max)  NOT NULL,
     [TipMot] nvarchar(max)  NOT NULL,
     [ServisIDS] int  NOT NULL,
@@ -304,7 +304,7 @@ ADD CONSTRAINT [FK_AutomobilServis]
     FOREIGN KEY ([ServisIDS])
     REFERENCES [dbo].[Servis]
         ([IDS])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AutomobilServis'
@@ -319,7 +319,7 @@ ADD CONSTRAINT [FK_PregledAutomobil]
     FOREIGN KEY ([AutomobilSASIJA])
     REFERENCES [dbo].[Automobils]
         ([SASIJA])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [DijagnosticarJMBG] in table 'Pregleds'
@@ -328,7 +328,7 @@ ADD CONSTRAINT [FK_PregledDijagnosticar]
     FOREIGN KEY ([DijagnosticarJMBG])
     REFERENCES [dbo].[Servisers_Dijagnosticar]
         ([JMBG])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PregledDijagnosticar'
@@ -343,7 +343,7 @@ ADD CONSTRAINT [FK_PokvarenPregled]
     FOREIGN KEY ([PregledAutomobilSASIJA], [PregledDijagnosticarJMBG])
     REFERENCES [dbo].[Pregleds]
         ([AutomobilSASIJA], [DijagnosticarJMBG])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [DeoDEOID] in table 'Pokvarens'
@@ -352,7 +352,7 @@ ADD CONSTRAINT [FK_PokvarenDeo]
     FOREIGN KEY ([DeoDEOID])
     REFERENCES [dbo].[Deos]
         ([DEOID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PokvarenDeo'
@@ -367,7 +367,7 @@ ADD CONSTRAINT [FK_MajstorZaMajstor]
     FOREIGN KEY ([MajstorJMBG])
     REFERENCES [dbo].[Servisers_Majstor]
         ([JMBG])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_MajstorZaMajstor'
@@ -382,7 +382,7 @@ ADD CONSTRAINT [FK_MajstorZaDeo]
     FOREIGN KEY ([DeoDEOID])
     REFERENCES [dbo].[Deos]
         ([DEOID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [PokvarenPregledAutomobilSASIJA], [PokvarenPregledDijagnosticarJMBG], [PokvarenDeoDEOID] in table 'Popravljens'
@@ -391,7 +391,7 @@ ADD CONSTRAINT [FK_PopravljenPokvaren]
     FOREIGN KEY ([PokvarenPregledAutomobilSASIJA], [PokvarenPregledDijagnosticarJMBG], [PokvarenDeoDEOID])
     REFERENCES [dbo].[Pokvarens]
         ([PregledAutomobilSASIJA], [PregledDijagnosticarJMBG], [DeoDEOID])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION; 
 GO
 
 -- Creating foreign key on [MajstorZaDeoDEOID], [MajstorZaMajstorJMBG] in table 'Popravljens'
@@ -400,7 +400,7 @@ ADD CONSTRAINT [FK_PopravljenMajstorZa]
     FOREIGN KEY ([MajstorZaDeoDEOID], [MajstorZaMajstorJMBG])
     REFERENCES [dbo].[MajstorZas]
         ([DeoDEOID], [MajstorJMBG])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE NO ACTION ON UPDATE NO ACTION; 
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PopravljenMajstorZa'
@@ -433,7 +433,7 @@ ADD CONSTRAINT [FK_Sus_inherits_Automobil]
     FOREIGN KEY ([SASIJA])
     REFERENCES [dbo].[Automobils]
         ([SASIJA])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 GO
 
 -- Creating foreign key on [SASIJA] in table 'Automobils_Elektricni'
@@ -442,7 +442,7 @@ ADD CONSTRAINT [FK_Elektricni_inherits_Automobil]
     FOREIGN KEY ([SASIJA])
     REFERENCES [dbo].[Automobils]
         ([SASIJA])
-    ON DELETE CASCADE ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE CASCADE;
 GO
 
 -- --------------------------------------------------

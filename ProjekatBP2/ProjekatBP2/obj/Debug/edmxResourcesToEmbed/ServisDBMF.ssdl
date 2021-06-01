@@ -83,7 +83,7 @@
     <Key>
       <PropertyRef Name="JMBG" />
     </Key>
-    <Property Name="JMBG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JMBG" Type="bigint" Nullable="false" />
     <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Prezime" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TipServ" Type="nvarchar(max)" Nullable="false" />
@@ -93,7 +93,7 @@
     <Key>
       <PropertyRef Name="SASIJA" />
     </Key>
-    <Property Name="SASIJA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SASIJA" Type="bigint" Nullable="false" />
     <Property Name="Marka" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TipMot" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ServisIDS" Type="int" Nullable="false" />
@@ -107,8 +107,8 @@
     </Key>
     <Property Name="DatPre" Type="datetime" Nullable="false" />
     <Property Name="Stanje" Type="bit" Nullable="false" />
-    <Property Name="AutomobilSASIJA" Type="int" Nullable="false" />
-    <Property Name="DijagnosticarJMBG" Type="int" Nullable="false" />
+    <Property Name="AutomobilSASIJA" Type="bigint" Nullable="false" />
+    <Property Name="DijagnosticarJMBG" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Deos">
     <Key>
@@ -123,8 +123,8 @@
       <PropertyRef Name="PregledDijagnosticarJMBG" />
       <PropertyRef Name="DeoDEOID" />
     </Key>
-    <Property Name="PregledAutomobilSASIJA" Type="int" Nullable="false" />
-    <Property Name="PregledDijagnosticarJMBG" Type="int" Nullable="false" />
+    <Property Name="PregledAutomobilSASIJA" Type="bigint" Nullable="false" />
+    <Property Name="PregledDijagnosticarJMBG" Type="bigint" Nullable="false" />
     <Property Name="DeoDEOID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MajstorZas">
@@ -132,7 +132,7 @@
       <PropertyRef Name="DeoDEOID" />
       <PropertyRef Name="MajstorJMBG" />
     </Key>
-    <Property Name="MajstorJMBG" Type="int" Nullable="false" />
+    <Property Name="MajstorJMBG" Type="bigint" Nullable="false" />
     <Property Name="DeoDEOID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Popravljens">
@@ -143,38 +143,38 @@
       <PropertyRef Name="MajstorZaDeoDEOID" />
       <PropertyRef Name="MajstorZaMajstorJMBG" />
     </Key>
-    <Property Name="PokvarenPregledAutomobilSASIJA" Type="int" Nullable="false" />
-    <Property Name="PokvarenPregledDijagnosticarJMBG" Type="int" Nullable="false" />
+    <Property Name="PokvarenPregledAutomobilSASIJA" Type="bigint" Nullable="false" />
+    <Property Name="PokvarenPregledDijagnosticarJMBG" Type="bigint" Nullable="false" />
     <Property Name="PokvarenDeoDEOID" Type="int" Nullable="false" />
     <Property Name="MajstorZaDeoDEOID" Type="int" Nullable="false" />
-    <Property Name="MajstorZaMajstorJMBG" Type="int" Nullable="false" />
+    <Property Name="MajstorZaMajstorJMBG" Type="bigint" Nullable="false" />
     <Property Name="DatPop" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Servisers_Dijagnosticar">
     <Key>
       <PropertyRef Name="JMBG" />
     </Key>
-    <Property Name="JMBG" Type="int" Nullable="false" />
+    <Property Name="JMBG" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Servisers_Majstor">
     <Key>
       <PropertyRef Name="JMBG" />
     </Key>
-    <Property Name="JMBG" Type="int" Nullable="false" />
+    <Property Name="JMBG" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Automobils_Sus">
     <Key>
       <PropertyRef Name="SASIJA" />
     </Key>
     <Property Name="Gorivo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SASIJA" Type="int" Nullable="false" />
+    <Property Name="SASIJA" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="Automobils_Elektricni">
     <Key>
       <PropertyRef Name="SASIJA" />
     </Key>
     <Property Name="BrMot" Type="int" Nullable="false" />
-    <Property Name="SASIJA" Type="int" Nullable="false" />
+    <Property Name="SASIJA" Type="bigint" Nullable="false" />
   </EntityType>
   <Association Name="ServisServiser">
     <End Role="Servis" Type="ServisDBMF.Store.Servis" Multiplicity="0..1" />

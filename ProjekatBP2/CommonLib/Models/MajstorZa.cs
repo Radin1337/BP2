@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Runtime.Serialization;
 namespace CommonLib.Models
 {
+    [DataContract]
     public class MajstorZa
     {
+        [DataMember]
         public long MajstorJMBG;
+        [DataMember]
         public int DeoDEOID;
 
         public MajstorZa(long majstorJMBG, int deoDEOID)

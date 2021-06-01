@@ -17,7 +17,7 @@ namespace ProjekatBP2.Managers
 
         public bool Dodaj (CommonLib.Models.Servis servis)
         {
-            if(!dbContext.Servis.FirstOrDefault(x => x.IDS.Equals(servis.IDS)).Equals(null))
+            if(dbContext.Servis.FirstOrDefault(x => x.IDS.Equals(servis.IDS)) != null)
             {
                 return false;
             }
@@ -36,9 +36,13 @@ namespace ProjekatBP2.Managers
         public bool Obrisi(int ids)
         {
             Servis s = dbContext.Servis.FirstOrDefault(x => x.IDS.Equals(ids));
-            if (s.Equals(null))
+            if (s == null)
             {
                 return false;
+            }
+            foreach(var item in s.Serviseri)
+            {
+                item.ServisIDS = null;
             }
             dbContext.Servis.Remove(s);
             dbContext.SaveChanges();
@@ -48,7 +52,7 @@ namespace ProjekatBP2.Managers
         public bool Izmeni(CommonLib.Models.Servis servis)
         {
             Servis s;
-            if((s = dbContext.Servis.FirstOrDefault(x => x.IDS.Equals(servis.IDS))).Equals(null))
+            if((s = dbContext.Servis.FirstOrDefault(x => x.IDS.Equals(servis.IDS))) == null)
             {
                 return false;
             }
@@ -68,7 +72,7 @@ namespace ProjekatBP2.Managers
         public CommonLib.Models.Servis Procitaj(int ids)
         {
             Servis s;
-            if ((s = dbContext.Servis.FirstOrDefault(x => x.IDS.Equals(ids))).Equals(null))
+            if ((s = dbContext.Servis.FirstOrDefault(x => x.IDS.Equals(ids))) == null)
             {
                 return null;
             }

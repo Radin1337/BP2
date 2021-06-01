@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Runtime.Serialization;
 namespace CommonLib.Models
 {
+    [DataContract]
     public class Servis
     {
+        [DataMember]
         public int IDS;
+        [DataMember]
         public string NazivS;
+        [DataMember]
         public string Adresa;
+        [DataMember]
         public string Telefon;
 
         public Servis(int iDS, string nazivS, Adresa adresa, string telefon)

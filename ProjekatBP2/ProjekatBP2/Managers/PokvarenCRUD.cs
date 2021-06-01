@@ -17,9 +17,9 @@ namespace ProjekatBP2.Managers
 
         public bool Dodaj(CommonLib.Models.Pokvaren pok)
         {
-            if (!dbContext.Pokvarens.FirstOrDefault(x=> x.DeoDEOID.Equals(pok.DeoDEOID) &&
+            if (dbContext.Pokvarens.FirstOrDefault(x=> x.DeoDEOID.Equals(pok.DeoDEOID) &&
                                                         x.PregledAutomobilSASIJA.Equals(pok.PregledAutomobilSASIJA) &&
-                                                        x.PregledDijagnosticarJMBG.Equals(pok.PregledDijagnosticarJMBG)).Equals(null))
+                                                        x.PregledDijagnosticarJMBG.Equals(pok.PregledDijagnosticarJMBG)) != null)
                 return false;
 
             dbContext.Pokvarens.Add(new Pokvaren()

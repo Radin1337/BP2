@@ -10,3 +10,5 @@ C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\ProjekatBP2\obj\Debug\Server.c
 C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\ProjekatBP2\obj\Debug\Server.csproj.CopyComplete
 C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\ProjekatBP2\obj\Debug\ProjekatBP2.exe
 C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\ProjekatBP2\obj\Debug\ProjekatBP2.pdb
+C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\ProjekatBP2\bin\Debug\CommonLib.dll
+C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\ProjekatBP2\bin\Debug\CommonLib.pdb

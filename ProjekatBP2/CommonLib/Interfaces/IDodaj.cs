@@ -12,28 +12,28 @@ namespace CommonLib.Interfaces
     public interface IDodaj
     {
         [OperationContract]
-        void DodajServis(Servis s);
+        bool DodajServis(Servis s);
         [OperationContract]
-        void DodajServisera(Serviser s);
+        bool DodajServisera(Serviser s);
         [OperationContract]
-        void DodajMajstora(Majstor m);
+        bool DodajMajstora(Majstor m);
         [OperationContract]
-        void DodajDijagnosticara(Dijagnosticar d);
+        bool DodajDijagnosticara(Dijagnosticar d);
         [OperationContract]
-        void DodajAutomobil(Automobil a);
+        bool DodajAutomobil(Automobil a);
         [OperationContract]
-        void DodajSus(Sus s);
+        bool DodajSus(Sus s);
         [OperationContract]
-        void DodajElektricni(Elektricni e);
+        bool DodajElektricni(Elektricni e);
         [OperationContract]
-        void DodajPregled(Pregled p);
+        bool DodajPregled(Pregled p);
         [OperationContract]
-        void DodajPokvaren(Pokvaren p);
+        bool DodajPokvaren(Pokvaren p);
         [OperationContract]
-        void DodajDeo(Deo d);
+        bool DodajDeo(Deo d);
         [OperationContract]
-        void DodajPopravljen(Popravljen p);
+        bool DodajPopravljen(Popravljen p);
         [OperationContract]
-        void DodajMajstoraZa(MajstorZa m);
+        bool DodajMajstoraZa(MajstorZa m);
     }
 }

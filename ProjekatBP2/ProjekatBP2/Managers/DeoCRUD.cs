@@ -17,7 +17,7 @@ namespace ProjekatBP2.Managers
 
         public bool Dodaj(CommonLib.Models.Deo deo)
         {
-            if(!dbContext.Deos.FirstOrDefault(x=> x.DEOID.Equals(deo.DEOID)).Equals(null))
+            if(dbContext.Deos.FirstOrDefault(x=> x.DEOID.Equals(deo.DEOID)) != null)
             {
                 return false;
             }
@@ -34,7 +34,7 @@ namespace ProjekatBP2.Managers
         public bool Obrisi(int deoid)
         {
             Deo d = dbContext.Deos.FirstOrDefault(x => x.DEOID.Equals(deoid));
-            if (d.Equals(null))
+            if (d == null)
                 return false;
 
             dbContext.Deos.Remove(d);
@@ -46,7 +46,7 @@ namespace ProjekatBP2.Managers
         public bool Izmeni(CommonLib.Models.Deo deo)
         {
             Deo d;
-            if ((d = dbContext.Deos.FirstOrDefault(x => x.DEOID.Equals(deo.DEOID))).Equals(null))
+            if ((d = dbContext.Deos.FirstOrDefault(x => x.DEOID.Equals(deo.DEOID))) ==null)
                 return false;
 
             dbContext.Entry(d).CurrentValues.SetValues(new Deo()
@@ -63,7 +63,7 @@ namespace ProjekatBP2.Managers
         public CommonLib.Models.Deo Procitaj(int deoid)
         {
             Deo d;
-            if ((d = dbContext.Deos.FirstOrDefault(x => x.DEOID.Equals(deoid))).Equals(null))
+            if ((d = dbContext.Deos.FirstOrDefault(x => x.DEOID.Equals(deoid))) == null)
                 return null;
 
             return new CommonLib.Models.Deo(deoid, d.NazivD);

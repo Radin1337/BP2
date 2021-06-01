@@ -1,0 +1,6 @@
+C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\CommonLib\bin\Debug\CommonLib.dll
+C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\CommonLib\bin\Debug\CommonLib.pdb
+C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\CommonLib\obj\Debug\CommonLib.csprojAssemblyReference.cache
+C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\CommonLib\obj\Debug\CommonLib.csproj.CoreCompileInputs.cache
+C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\CommonLib\obj\Debug\CommonLib.dll
+C:\Users\Radin\Desktop\ProjekatBP\BP2\ProjekatBP2\CommonLib\obj\Debug\CommonLib.pdb

@@ -17,7 +17,7 @@ namespace ProjekatBP2.Managers
 
         public bool Dodaj(CommonLib.Models.Pregled p)
         {
-            if(!dbContext.Pregleds.FirstOrDefault(x=> x.DijagnosticarJMBG.Equals(p.DijagnosticarJMBG) && x.AutomobilSASIJA.Equals(p.AutomobilSASIJA)).Equals(null))
+            if(dbContext.Pregleds.FirstOrDefault(x=> x.DijagnosticarJMBG.Equals(p.DijagnosticarJMBG) && x.AutomobilSASIJA.Equals(p.AutomobilSASIJA)) != null)
                 return false;
 
             dbContext.Pregleds.Add(new Pregled()
@@ -34,7 +34,7 @@ namespace ProjekatBP2.Managers
         public bool Obrisi(long sasija, long jmbg)
         {
             Pregled p = dbContext.Pregleds.FirstOrDefault(x => x.DijagnosticarJMBG.Equals(jmbg) && x.AutomobilSASIJA.Equals(sasija));
-            if (p.Equals(null))
+            if (p == null)
                 return false;
 
             dbContext.Pregleds.Remove(p);
@@ -47,7 +47,7 @@ namespace ProjekatBP2.Managers
         {
             Pregled p;
 
-            if ((p = dbContext.Pregleds.FirstOrDefault(x => x.DijagnosticarJMBG.Equals(pregled.DijagnosticarJMBG) && x.AutomobilSASIJA.Equals(pregled.AutomobilSASIJA))).Equals(null))
+            if ((p = dbContext.Pregleds.FirstOrDefault(x => x.DijagnosticarJMBG.Equals(pregled.DijagnosticarJMBG) && x.AutomobilSASIJA.Equals(pregled.AutomobilSASIJA))) == null)
                 return false;
 
             dbContext.Entry(p).CurrentValues.SetValues(new Pregled()
@@ -65,7 +65,7 @@ namespace ProjekatBP2.Managers
         public CommonLib.Models.Pregled Procitaj(long sasija, long jmbg)
         {
             Pregled p;
-            if ((p = dbContext.Pregleds.FirstOrDefault(x => x.DijagnosticarJMBG.Equals(jmbg) && x.AutomobilSASIJA.Equals(sasija))).Equals(null))
+            if ((p = dbContext.Pregleds.FirstOrDefault(x => x.DijagnosticarJMBG.Equals(jmbg) && x.AutomobilSASIJA.Equals(sasija))) == null)
                 return null;
 
             return new CommonLib.Models.Pregled(sasija, jmbg, p.DatPre, p.Stanje);

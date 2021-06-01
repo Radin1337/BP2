@@ -12,28 +12,28 @@ namespace CommonLib.Interfaces
     public interface IObrisi
     {
         [OperationContract]
-        void ObrisiServis(int ids);
+        bool ObrisiServis(int ids);
         [OperationContract]
-        void ObrisiServisera(long jmbg);
+        bool ObrisiServisera(long jmbg);
         [OperationContract]
-        void ObrisiMajstora(long jmbg);
+        bool ObrisiMajstora(long jmbg);
         [OperationContract]
-        void ObrisiDijagnosticara(long jmbg);
+        bool ObrisiDijagnosticara(long jmbg);
         [OperationContract]
-        void ObrisiAutomobil(long sasija);
+        bool ObrisiAutomobil(long sasija);
         [OperationContract]
-        void ObrisiSus(long sasija);
+        bool ObrisiSus(long sasija);
         [OperationContract]
-        void ObrisiElektricni(long sasija);
+        bool ObrisiElektricni(long sasija);
         [OperationContract]
-        void ObrisiPregled(long sasija, long jmbg);
+        bool ObrisiPregled(long sasija, long jmbg);
         [OperationContract]
-        void ObrisiPokvaren(long sasija, long jmbg, int deoid);
+        bool ObrisiPokvaren(long sasija, long jmbg, int deoid);
         [OperationContract]
-        void ObrisiDeo(int deoid);
+        bool ObrisiDeo(int deoid);
         [OperationContract]
-        void ObrisiPopravljen(long sasija, long jmbg, int deoid, long jmbgg, long deoidd);
+        bool ObrisiPopravljen(long sasija, long jmbg, int deoid, long jmbgg, int deoidd);
         [OperationContract]
-        void ObrisiMajstoraZa(long jmbg, int deoid);
+        bool ObrisiMajstoraZa(long jmbg, int deoid);
     }
 }

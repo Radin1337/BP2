@@ -17,12 +17,12 @@ namespace ProjekatBP2.Managers
 
         public bool Dodaj(CommonLib.Models.Popravljen pop)
         {
-            if (!dbContext.Popravljens.FirstOrDefault(x=> x.MajstorZaDeoDEOID.Equals(pop.MajstorZaDeoDEOID) &&
+            if (dbContext.Popravljens.FirstOrDefault(x=> x.MajstorZaDeoDEOID.Equals(pop.MajstorZaDeoDEOID) &&
                                                           x.MajstorZaMajstorJMBG.Equals(pop.MajstorZaMajstorJMBG) &&
                                                           x.PokvarenPregledAutomobilSASIJA.Equals(pop.PokvarenPregledAutomobilSASIJA) &&
                                                           x.PokvarenPregledDijagnosticarJMBG.Equals(pop.PokvarenPregledDijagnosticarJMBG) &&
                                                           x.PokvarenDeoDEOID.Equals(pop.PokvarenDeoDEOID)
-                                                          ).Equals(null))
+                                                          ) != null)
                 return false;
 
             dbContext.Popravljens.Add(new Popravljen()
@@ -47,7 +47,7 @@ namespace ProjekatBP2.Managers
                                                           x.PokvarenDeoDEOID.Equals(deoid)
                                                           );
 
-            if (p.Equals(null))
+            if (p == null)
                 return false;
 
             dbContext.Popravljens.Remove(p);
@@ -65,7 +65,7 @@ namespace ProjekatBP2.Managers
                                                           x.PokvarenDeoDEOID.Equals(pop.PokvarenDeoDEOID)
                                                           );
 
-            if (p.Equals(null))
+            if (p == null)
             {
                 return false;
             }
@@ -93,7 +93,7 @@ namespace ProjekatBP2.Managers
                                                           x.PokvarenDeoDEOID.Equals(deoid)
                                                           );
 
-            if (p.Equals(null))
+            if (p == null)
                 return null;
 
             return new CommonLib.Models.Popravljen(sasija, jmbg, deoid, deoidd, jmbgg, p.DatPop);

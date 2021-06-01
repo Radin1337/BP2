@@ -17,21 +17,35 @@ namespace ProjekatBP2.Managers
 
         public bool Dodaj(CommonLib.Models.Automobil automobil)
         {
-            if (!dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(automobil.SASIJA)).Equals(null))
+            if (dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(automobil.SASIJA)) != null)
             {
                 return false;
             }
 
-
-            dbContext.Automobils.Add(new Automobil()
+            if (automobil.TipMot == "Elektricni")
+                dbContext.Automobils.Add(new Elektricni()
+                {
+                    SASIJA = automobil.SASIJA,
+                    Marka = automobil.Marka,
+                    BrSK = automobil.BrSK,
+                    DatSK = automobil.DatSK,
+                    TipMot = automobil.TipMot,
+                    ServisIDS = automobil.ServisIDS,
+                    BrMot = ((CommonLib.Models.Elektricni)automobil).BrMot
+                });
+            else
             {
-                SASIJA = automobil.SASIJA,
-                Marka = automobil.Marka,
-                BrSK = automobil.BrSK,
-                DatSK = automobil.DatSK,
-                TipMot = automobil.TipMot,
-                ServisIDS = automobil.ServisIDS
-            });
+                dbContext.Automobils.Add(new Sus()
+                {
+                    SASIJA = automobil.SASIJA,
+                    Marka = automobil.Marka,
+                    BrSK = automobil.BrSK,
+                    DatSK = automobil.DatSK,
+                    TipMot = automobil.TipMot,
+                    ServisIDS = automobil.ServisIDS,
+                    Gorivo = ((CommonLib.Models.Sus)automobil).Gorivo
+                });
+            }
 
             return dbContext.SaveChanges() > 0;
         }
@@ -39,7 +53,7 @@ namespace ProjekatBP2.Managers
         public bool Obrisi(long sasija)
         {
             Automobil a = dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(sasija));
-            if (a.Equals(null))
+            if (a == null)
             {
                 return false;
             }
@@ -52,7 +66,7 @@ namespace ProjekatBP2.Managers
         public bool Izmeni(CommonLib.Models.Automobil automobil)
         {
             Automobil a;
-            if((a = dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(automobil.SASIJA))).Equals(null))
+            if((a = dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(automobil.SASIJA))) == null)
             {
                 return false;
             }
@@ -74,12 +88,23 @@ namespace ProjekatBP2.Managers
         public CommonLib.Models.Automobil Procitaj(long sasija)
         {
             Automobil a;
-            if ((a = dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(sasija))).Equals(null))
+            if ((a = dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(sasija))) == null)
             {
                 return null;
             }
 
-            return new CommonLib.Models.Automobil(sasija, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot);
+            if(a.TipMot == "Elektricni")
+            {
+                return new CommonLib.Models.Elektricni(((Elektricni)a).BrMot, sasija, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot);
+            }
+            else if(a.TipMot == "Sus")
+            {
+                return new CommonLib.Models.Sus(((Sus)a).Gorivo, sasija, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot);
+            }
+            else
+            {
+                return new CommonLib.Models.Automobil(sasija, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot);
+            }
         }
 
         public IEnumerable<CommonLib.Models.Automobil> ProcitajSve()
@@ -87,7 +112,15 @@ namespace ProjekatBP2.Managers
             HashSet<CommonLib.Models.Automobil> automobili = new HashSet<CommonLib.Models.Automobil>();
             foreach(Automobil a in dbContext.Automobils)
             {
-                automobili.Add(new CommonLib.Models.Automobil(a.SASIJA, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot));
+                if (a.TipMot == "Elektricni")
+                {
+                    automobili.Add(new CommonLib.Models.Elektricni(((Elektricni)a).BrMot, a.SASIJA, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot));
+                }
+                else
+                {
+                    automobili.Add(new CommonLib.Models.Sus(((Sus)a).Gorivo, a.SASIJA, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot));
+                }
+                
             }
 
             return automobili;

@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CommonLib.Models
 {
+    [DataContract]
     public class Pokvaren
     {
+        [DataMember]
         public long PregledAutomobilSASIJA;
+        [DataMember]
         public long PregledDijagnosticarJMBG;
+        [DataMember]
         public int DeoDEOID;
 
         public Pokvaren(long pregledAutomobilSASIJA, long pregledDijagnosticarJMBG, int deoDEOID)

@@ -17,19 +17,34 @@ namespace ProjekatBP2.Managers
 
         public bool Dodaj(CommonLib.Models.Serviser serviser)
         {
-            if (!dbContext.Servisers.FirstOrDefault(x => x.JMBG.Equals(serviser.JMBG)).Equals(null))
+            if (dbContext.Servisers.FirstOrDefault(x => x.JMBG.Equals(serviser.JMBG)) != null)
             {
                 return false;
             }
 
-            dbContext.Servisers.Add(new Serviser()
+            if (serviser.TipServ == "Dijagnosticar")
             {
-                JMBG = serviser.JMBG,
-                Ime = serviser.Ime,
-                Prezime = serviser.Prezime,
-                ServisIDS = serviser.ServisIDS,
-                TipServ = serviser.TipServ
-            });
+                dbContext.Servisers.Add(new Dijagnosticar()
+                {
+                    JMBG = serviser.JMBG,
+                    Ime = serviser.Ime,
+                    Prezime = serviser.Prezime,
+                    ServisIDS = serviser.ServisIDS,
+                    TipServ = serviser.TipServ
+                });
+            }
+            else
+            {
+                dbContext.Servisers.Add(new Majstor()
+                {
+                    JMBG = serviser.JMBG,
+                    Ime = serviser.Ime,
+                    Prezime = serviser.Prezime,
+                    ServisIDS = serviser.ServisIDS,
+                    TipServ = serviser.TipServ
+                });
+            }
+            
 
             return dbContext.SaveChanges() > 0;
         }
@@ -37,7 +52,7 @@ namespace ProjekatBP2.Managers
         public bool Obrisi(long jmbg)
         {
             Serviser s = dbContext.Servisers.FirstOrDefault(x => x.JMBG.Equals(jmbg));
-            if (s.Equals(null))
+            if (s == null)
             {
                 return false;
             }
@@ -49,7 +64,7 @@ namespace ProjekatBP2.Managers
         public bool Izmeni(CommonLib.Models.Serviser serviser)
         {
             Serviser s;
-            if ((s = dbContext.Servisers.FirstOrDefault(x => x.JMBG.Equals(serviser.JMBG))).Equals(null))
+            if ((s = dbContext.Servisers.FirstOrDefault(x => x.JMBG.Equals(serviser.JMBG))) == null)
             {
                 return false;
             }
@@ -70,17 +85,23 @@ namespace ProjekatBP2.Managers
         public CommonLib.Models.Serviser Procitaj(long jmbg)
         {
             Serviser s;
-            if ((s = dbContext.Servisers.FirstOrDefault(x => x.JMBG.Equals(jmbg))).Equals(null))
+            if ((s = dbContext.Servisers.FirstOrDefault(x => x.JMBG.Equals(jmbg))) == null)
             {
                 return null;
             }
 
-            return new CommonLib.Models.Serviser(jmbg, s.Ime,s.Prezime,s.ServisIDS, s.TipServ);
+            if(s.TipServ == "Dijagnosticar")
+                return new CommonLib.Models.Dijagnosticar(jmbg, s.Ime, s.Prezime, s.ServisIDS, s.TipServ);
+            else if(s.TipServ == "Majstor")
+                return new CommonLib.Models.Majstor(jmbg, s.Ime,s.Prezime,s.ServisIDS, s.TipServ);
+            else
+                return new CommonLib.Models.Serviser(jmbg, s.Ime, s.Prezime, s.ServisIDS, s.TipServ);
         }
 
         public IEnumerable<CommonLib.Models.Serviser> ProcitajSve()
         {
             HashSet<CommonLib.Models.Serviser> serviseri = new HashSet<CommonLib.Models.Serviser>();
+
             foreach (Serviser s in dbContext.Servisers)
             {
                 serviseri.Add(new CommonLib.Models.Serviser(s.JMBG, s.Ime, s.Prezime, s.ServisIDS, s.TipServ));

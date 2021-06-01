@@ -17,7 +17,7 @@ namespace ProjekatBP2.Managers
 
         public bool Dodaj(CommonLib.Models.MajstorZa mz)
         {
-            if (!dbContext.MajstorZas.FirstOrDefault(x => x.DeoDEOID.Equals(mz.DeoDEOID) && x.MajstorJMBG.Equals(mz.MajstorJMBG)).Equals(null))
+            if (dbContext.MajstorZas.FirstOrDefault(x => x.DeoDEOID.Equals(mz.DeoDEOID) && x.MajstorJMBG.Equals(mz.MajstorJMBG)) != null)
                 return false;
 
             dbContext.MajstorZas.Add(new MajstorZa()
@@ -32,7 +32,7 @@ namespace ProjekatBP2.Managers
         public bool Obrisi(long jmbg, int deoid)
         {
             MajstorZa m = dbContext.MajstorZas.FirstOrDefault(x => x.DeoDEOID.Equals(deoid) && x.MajstorJMBG.Equals(jmbg));
-            if (m.Equals(null))
+            if (m == null)
             {
                 return false;
             }
@@ -47,7 +47,7 @@ namespace ProjekatBP2.Managers
         public bool Izmeni(CommonLib.Models.MajstorZa mz)
         {
             MajstorZa m = dbContext.MajstorZas.FirstOrDefault(x => x.DeoDEOID.Equals(mz.DeoDEOID) && x.MajstorJMBG.Equals(mz.MajstorJMBG));
-            if (m.Equals(null))
+            if (m == null)
                 return false;
 
             dbContext.Entry(m).CurrentValues.SetValues(new MajstorZa()
@@ -63,7 +63,7 @@ namespace ProjekatBP2.Managers
         public CommonLib.Models.MajstorZa Procitaj(long jmbg, int deoid)
         {
             MajstorZa m = dbContext.MajstorZas.FirstOrDefault(x => x.DeoDEOID.Equals(deoid) && x.MajstorJMBG.Equals(jmbg));
-            if (m.Equals(null))
+            if (m == null)
                 return null;
 
             return new CommonLib.Models.MajstorZa(jmbg, deoid);
