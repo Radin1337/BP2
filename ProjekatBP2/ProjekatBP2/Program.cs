@@ -14,14 +14,6 @@ namespace ProjekatBP2
         private static ServiceHost svcHost;
         static void Main(string[] args)
         {
-            /*SveOperacije server = new SveOperacije();
-            var temp = server.ProcitajSveAutomobil();
-            foreach(var item in temp)
-            {
-                Console.WriteLine(item.Marka);
-            }
-            return;*/
-
             using (svcHost = new ServiceHost(typeof(SveOperacije)))
             {
                 svcHost.Open();
