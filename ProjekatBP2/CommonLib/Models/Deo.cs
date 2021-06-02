@@ -10,9 +10,9 @@ namespace CommonLib.Models
     public class Deo
     {
         [DataMember]
-        public int DEOID;
+        public int DEOID { get; set; }
         [DataMember]
-        public string NazivD;
+        public string NazivD { get; set; }
 
         public Deo(int dEOID, string nazivD)
         {

@@ -27,12 +27,8 @@ namespace Client
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _ = new ServiceProvider();
+            
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            ServiceProvider.Instance.ProcitajSveAutomobil();
-        }
     }
 }

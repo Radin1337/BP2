@@ -10,13 +10,13 @@ namespace CommonLib.Models
     public class Servis
     {
         [DataMember]
-        public int IDS;
+        public int IDS { get; set; }
         [DataMember]
-        public string NazivS;
+        public string NazivS { get; set; }
         [DataMember]
-        public string Adresa;
+        public string Adresa { get; set; }
         [DataMember]
-        public string Telefon;
+        public string Telefon { get; set; }
 
         public Servis(int iDS, string nazivS, Adresa adresa, string telefon)
         {
@@ -30,5 +30,6 @@ namespace CommonLib.Models
 
         public ICollection<Automobil> Automobili { get; set; }
         public ICollection<Serviser> Serviseri { get; set; }
+
     }
 }

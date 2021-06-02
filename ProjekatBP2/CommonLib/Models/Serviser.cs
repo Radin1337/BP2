@@ -10,15 +10,15 @@ namespace CommonLib.Models
     public class Serviser
     {
         [DataMember]
-        public long JMBG;
+        public long JMBG { get; set; }
         [DataMember]
-        public string Ime;
+        public string Ime { get; set; }
         [DataMember]
-        public string Prezime;
+        public string Prezime { get; set; }
         [DataMember]
-        public string TipServ;
+        public string TipServ { get; set; }
         [DataMember]
-        public int? ServisIDS;
+        public int? ServisIDS { get; set; }
 
         public Serviser(long jMBG, string ime, string prezime, int? servisIDS, string tipServ)
         {

@@ -11,11 +11,11 @@ namespace CommonLib.Models
     public class Pokvaren
     {
         [DataMember]
-        public long PregledAutomobilSASIJA;
+        public long PregledAutomobilSASIJA { get; set; }
         [DataMember]
-        public long PregledDijagnosticarJMBG;
+        public long PregledDijagnosticarJMBG { get; set; }
         [DataMember]
-        public int DeoDEOID;
+        public int DeoDEOID { get; set; }
 
         public Pokvaren(long pregledAutomobilSASIJA, long pregledDijagnosticarJMBG, int deoDEOID)
         {

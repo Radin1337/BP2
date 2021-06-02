@@ -11,19 +11,19 @@ namespace CommonLib.Models
     public class Automobil
     {
         [DataMember]
-        public long SASIJA;
+        public long SASIJA { get; set; }
         [DataMember]
-        public string Marka;
+        public string Marka { get; set; }
         [DataMember]
-        public int BrSK;
+        public int BrSK { get; set; }
         [DataMember]
-        public DateTime DatSK = new DateTime();
+        public DateTime DatSK { get; set; } = new DateTime();
         [DataMember]
-        public int ServisIDS;
+        public int ServisIDS { get; set; }
         [DataMember]
-        public string TipMot;
+        public string TipMot { get; set; }
 
-        public Automobil(long sASIJA, string marka, int brSK, DateTime datSK, int servisIDS, string tipMot)
+    public Automobil(long sASIJA, string marka, int brSK, DateTime datSK, int servisIDS, string tipMot)
         {
             SASIJA = sASIJA;
             Marka = marka;

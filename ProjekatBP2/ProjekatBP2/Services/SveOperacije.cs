@@ -217,7 +217,7 @@ namespace ProjekatBP2.Services
 
         public CommonLib.Models.Elektricni ProcitajElektricni(long sasija)
         {
-            return (CommonLib.Models.Elektricni)mc.AutomobilCRUD.Procitaj(sasija);
+            return (CommonLib.Models.Elektricni)mc.AutomobilCRUD.ProcitajSUSEL(sasija);
         }
 
         public CommonLib.Models.Majstor ProcitajMajstora(long jmbg)
@@ -257,7 +257,7 @@ namespace ProjekatBP2.Services
 
         public CommonLib.Models.Sus ProcitajSus(long sasija)
         {
-            return (CommonLib.Models.Sus)mc.AutomobilCRUD.Procitaj(sasija);
+            return (CommonLib.Models.Sus)mc.AutomobilCRUD.ProcitajSUSEL(sasija);
         }
         #endregion
 
@@ -285,7 +285,7 @@ namespace ProjekatBP2.Services
 
         public IEnumerable<CommonLib.Models.Elektricni> ProcitajSveElektricni()
         {
-            IEnumerable<CommonLib.Models.Automobil> a = mc.AutomobilCRUD.ProcitajSve().Where(x => x.TipMot.Equals("Elektricni"));
+            IEnumerable<CommonLib.Models.Automobil> a = mc.AutomobilCRUD.ProcitajSveSUSEL().Where(x => x.TipMot.Equals("Elektricni"));
             HashSet<CommonLib.Models.Elektricni> e = new HashSet<CommonLib.Models.Elektricni>();
             foreach (var item in a)
             {
@@ -339,7 +339,7 @@ namespace ProjekatBP2.Services
 
         public IEnumerable<CommonLib.Models.Sus> ProcitajSveSus()
         {
-            IEnumerable<CommonLib.Models.Automobil> a = mc.AutomobilCRUD.ProcitajSve().Where(x => x.TipMot.Equals("Sus"));
+            IEnumerable<CommonLib.Models.Automobil> a = mc.AutomobilCRUD.ProcitajSveSUSEL().Where(x => x.TipMot.Equals("Sus"));
             HashSet<CommonLib.Models.Sus> s = new HashSet<CommonLib.Models.Sus>();
             foreach (var item in a)
             {

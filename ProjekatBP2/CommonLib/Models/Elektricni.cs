@@ -10,7 +10,7 @@ namespace CommonLib.Models
     public class Elektricni : Automobil
     {
         [DataMember]
-        public int BrMot;
+        public int BrMot { get; set; }
         public Elektricni(int brMot,long sASIJA, string marka, int brSK, DateTime datSK, int servisIDS, string tipMot = "Elektricni") : base(sASIJA, marka, brSK, datSK, servisIDS, tipMot)
         {
             BrMot = brMot;

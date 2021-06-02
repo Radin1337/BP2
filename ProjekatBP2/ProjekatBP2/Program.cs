@@ -14,7 +14,15 @@ namespace ProjekatBP2
         private static ServiceHost svcHost;
         static void Main(string[] args)
         {
-            using (svcHost = new ServiceHost(typeof(SveOperacije))) 
+            /*SveOperacije server = new SveOperacije();
+            var temp = server.ProcitajSveAutomobil();
+            foreach(var item in temp)
+            {
+                Console.WriteLine(item.Marka);
+            }
+            return;*/
+
+            using (svcHost = new ServiceHost(typeof(SveOperacije)))
             {
                 svcHost.Open();
                 Console.WriteLine("Server is up and running...");
@@ -56,9 +64,9 @@ namespace ProjekatBP2
             CommonLib.Models.Popravljen pop2 = new CommonLib.Models.Popravljen(pok2.PregledAutomobilSASIJA, pok2.PregledDijagnosticarJMBG, pok2.DeoDEOID, mz2.DeoDEOID,mz2.MajstorJMBG, DateTime.Now);
             CommonLib.Models.Popravljen pop3 = new CommonLib.Models.Popravljen(pok3.PregledAutomobilSASIJA, pok3.PregledDijagnosticarJMBG, pok3.DeoDEOID, mz3.DeoDEOID,mz3.MajstorJMBG, DateTime.Now);
             CommonLib.Models.Popravljen pop4 = new CommonLib.Models.Popravljen(pok4.PregledAutomobilSASIJA, pok4.PregledDijagnosticarJMBG, pok4.DeoDEOID, mz4.DeoDEOID,mz4.MajstorJMBG, DateTime.Now);
-            */
+            
 
-            /*server.DodajServis(teslaServis);
+            server.DodajServis(teslaServis);
             server.DodajServis(fordServis);
             server.DodajServisera(d1);
             server.DodajServisera(d2);

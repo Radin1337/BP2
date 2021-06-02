@@ -11,13 +11,13 @@ namespace CommonLib.Models
     public class Pregled
     {
         [DataMember]
-        public DateTime DatPre = new DateTime();
+        public DateTime DatPre { get; set; } = new DateTime();
         [DataMember]
-        public bool Stanje;
+        public bool Stanje { get; set; }
         [DataMember]
-        public long AutomobilSASIJA;
+        public long AutomobilSASIJA { get; set; }
         [DataMember]
-        public long DijagnosticarJMBG;
+        public long DijagnosticarJMBG { get; set; }
 
         public Pregled(long automobilSASIJA, long dijagnosticarJMBG, DateTime datPre, bool stanje)
         {

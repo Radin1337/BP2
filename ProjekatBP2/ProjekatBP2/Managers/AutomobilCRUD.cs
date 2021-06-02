@@ -71,6 +71,7 @@ namespace ProjekatBP2.Managers
                 return false;
             }
 
+            
             dbContext.Entry(a).CurrentValues.SetValues(new Automobil()
             {
                 SASIJA = automobil.SASIJA,
@@ -85,7 +86,7 @@ namespace ProjekatBP2.Managers
             return true;
         }
 
-        public CommonLib.Models.Automobil Procitaj(long sasija)
+        public CommonLib.Models.Automobil ProcitajSUSEL(long sasija)
         {
             Automobil a;
             if ((a = dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(sasija))) == null)
@@ -107,7 +108,18 @@ namespace ProjekatBP2.Managers
             }
         }
 
-        public IEnumerable<CommonLib.Models.Automobil> ProcitajSve()
+        public CommonLib.Models.Automobil Procitaj(long sasija)
+        {
+            Automobil a;
+            if ((a = dbContext.Automobils.FirstOrDefault(x => x.SASIJA.Equals(sasija))) == null)
+            {
+                return null;
+            }
+
+            return new CommonLib.Models.Automobil(sasija, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot);
+        }
+
+        public IEnumerable<CommonLib.Models.Automobil> ProcitajSveSUSEL()
         {
             HashSet<CommonLib.Models.Automobil> automobili = new HashSet<CommonLib.Models.Automobil>();
             foreach(Automobil a in dbContext.Automobils)
@@ -121,6 +133,19 @@ namespace ProjekatBP2.Managers
                     automobili.Add(new CommonLib.Models.Sus(((Sus)a).Gorivo, a.SASIJA, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot));
                 }
                 
+            }
+
+            return automobili;
+        }
+
+        public IEnumerable<CommonLib.Models.Automobil> ProcitajSve()
+        {
+            HashSet<CommonLib.Models.Automobil> automobili = new HashSet<CommonLib.Models.Automobil>();
+            foreach (Automobil a in dbContext.Automobils)
+            {
+
+                automobili.Add(new CommonLib.Models.Automobil(a.SASIJA, a.Marka, a.BrSK, a.DatSK, a.ServisIDS, a.TipMot));
+
             }
 
             return automobili;

@@ -10,7 +10,7 @@ namespace CommonLib.Models
     public class Sus : Automobil
     {
         [DataMember]
-        public string Gorivo;
+        public string Gorivo { get; set; }
         public Sus(string gorivo, long sASIJA, string marka, int brSK, DateTime datSK, int servisIDS, string tipMot = "Sus") : base(sASIJA, marka, brSK, datSK, servisIDS, tipMot)
         {
             Gorivo = gorivo;

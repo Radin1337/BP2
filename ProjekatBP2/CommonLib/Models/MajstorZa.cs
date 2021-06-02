@@ -10,9 +10,9 @@ namespace CommonLib.Models
     public class MajstorZa
     {
         [DataMember]
-        public long MajstorJMBG;
+        public long MajstorJMBG { get; set; }
         [DataMember]
-        public int DeoDEOID;
+        public int DeoDEOID { get; set; }
 
         public MajstorZa(long majstorJMBG, int deoDEOID)
         {

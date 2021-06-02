@@ -4,11 +4,68 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
+        xmlns:view="clr-namespace:Client.View"
+        xmlns:viewModel="clr-namespace:Client.ViewModel"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid MouseLeftButtonDown="Grid_MouseDown">
-        <TextBlock Text="Pusi kurac"/>
+        Title="Evidencija" Height="450" Width="800" ResizeMode="NoResize" Icon="/Resources/ico.png">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:ServisViewModel}">
+            <view:ServisView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ServiserViewModel}">
+            <view:ServiserView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:DijagnosticarViewModel}">
+            <view:DijagnosticarView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:MajstorViewModel}">
+            <view:MajstorView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:AutomobilViewModel}">
+            <view:AutomobilView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:SusViewModel}">
+            <view:SusView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ElektricniViewModel}">
+            <view:ElektricniView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PregledViewModel}">
+            <view:PregledView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PokvarenViewModel}">
+            <view:PokvarenView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:DeoViewModel}">
+            <view:DeoView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:MajstorZaViewModel}">
+            <view:MajstorZaView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PopravljenViewModel}">
+            <view:PopravljenView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid Background="LightBlue">
+        <StackPanel HorizontalAlignment="Left" Width="100" Height="411" VerticalAlignment="Bottom">
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="ServisButton" Content="Servisi" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Servis"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="ServiserButton" Content="Serviseri" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Serviser"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="MajstorButton" Content="Majstori" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Majstor"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="DijagnosticarButton" Content="Dijagnosticari" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Dijagnosticar"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="AutomobilButton" Content="Automobili" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Automobil"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="SusButton" Content="SUS" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Sus"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="ElektricniButton" Content="Elektricni" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Elektricni"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="PregledButton" Content="Pregledi" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Pregled"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="PokvarenButton" Content="Pokvareni" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Pokvaren"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="DeoButton" Content="Delovi" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Deo"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="MajstorZaButton" Content="Majstori za deo" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="MajstorZa"/>
+            <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" x:Name="PopravljenButton" Content="Popravljeni" Height="34" VerticalAlignment="Top" Width="100" Command="{Binding buttonClick}" CommandParameter="Popravljen"/>
+        </StackPanel>
 
+        <ContentControl Content="{Binding CurrentViewModel, Mode=OneWay}"/>
     </Grid>
 </Window>

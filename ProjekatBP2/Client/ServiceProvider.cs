@@ -9,12 +9,12 @@ using System.ServiceModel;
 
 namespace Client
 {
-    public class ServiceProvider:ISveOp
+    public sealed class ServiceProvider : ISveOp
     {
-        public static readonly ServiceProvider Instance = new ServiceProvider();
+        public static ServiceProvider Instance { get; } = new ServiceProvider();
         private ISveOp proxy;
 
-        public ServiceProvider()
+        private ServiceProvider()
         {
             proxy = new ChannelFactory<ISveOp>("Client").CreateChannel();
         }

@@ -11,17 +11,17 @@ namespace CommonLib.Models
     public class Popravljen
     {
         [DataMember]
-        public long PokvarenPregledAutomobilSASIJA;
+        public long PokvarenPregledAutomobilSASIJA { get; set; }
         [DataMember]
-        public long PokvarenPregledDijagnosticarJMBG;
+        public long PokvarenPregledDijagnosticarJMBG { get; set; }
         [DataMember]
-        public int PokvarenDeoDEOID;
+        public int PokvarenDeoDEOID { get; set; }
         [DataMember]
-        public int MajstorZaDeoDEOID;
+        public int MajstorZaDeoDEOID { get; set; }
         [DataMember]
-        public long MajstorZaMajstorJMBG;
+        public long MajstorZaMajstorJMBG { get; set; }
         [DataMember]
-        public DateTime DatPop = new DateTime();
+        public DateTime DatPop { get; set; } = new DateTime();
 
         public Popravljen(long pokvarenPregledAutomobilSASIJA, long pokvarenPregledDijagnosticarJMBG, int pokvarenDeoDEOID, int majstorZaDeoDEOID, long majstorZaMajstorJMBG, DateTime datPop)
         {

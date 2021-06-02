@@ -56,7 +56,58 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindableBase.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="MyICommand.cs" />
     <Compile Include="ServiceProvider.cs" />
+    <Compile Include="ViewModel\MajstorViewModel.cs" />
+    <Compile Include="ViewModel\AutomobilViewModel.cs" />
+    <Compile Include="ViewModel\DeoViewModel.cs" />
+    <Compile Include="ViewModel\MajstorZaViewModel.cs" />
+    <Compile Include="ViewModel\PopravljenViewModel.cs" />
+    <Compile Include="ViewModel\SusViewModel.cs" />
+    <Compile Include="ViewModel\PregledViewModel.cs" />
+    <Compile Include="ViewModel\ElektricniViewModel.cs" />
+    <Compile Include="ViewModel\PokvarenViewModel.cs" />
+    <Compile Include="ViewModel\DijagnosticarViewModel.cs" />
+    <Compile Include="ViewModel\ServiserViewModel.cs" />
+    <Compile Include="ViewModel\ServisViewModel.cs" />
+    <Compile Include="View\AutomobilView.xaml.cs">
+      <DependentUpon>AutomobilView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeoView.xaml.cs">
+      <DependentUpon>DeoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DijagnosticarView.xaml.cs">
+      <DependentUpon>DijagnosticarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ElektricniView.xaml.cs">
+      <DependentUpon>ElektricniView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MajstorView.xaml.cs">
+      <DependentUpon>MajstorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MajstorZaView.xaml.cs">
+      <DependentUpon>MajstorZaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PokvarenView.xaml.cs">
+      <DependentUpon>PokvarenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PopravljenView.xaml.cs">
+      <DependentUpon>PopravljenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PregledView.xaml.cs">
+      <DependentUpon>PregledView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ServiserView.xaml.cs">
+      <DependentUpon>ServiserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ServisView.xaml.cs">
+      <DependentUpon>ServisView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SusView.xaml.cs">
+      <DependentUpon>SusView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +120,54 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AutomobilView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DijagnosticarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ElektricniView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MajstorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MajstorZaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PokvarenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PopravljenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PregledView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ServiserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ServisView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -103,8 +202,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
+    <Resource Include="Resources\ico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

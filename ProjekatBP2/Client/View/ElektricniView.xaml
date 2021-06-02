@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Client.View.ElektricniView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client.View" xmlns:viewmodel="clr-namespace:Client.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:ElektricniViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="LightBlue" Margin="100,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="440"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView FontSize="13" Foreground="Black" HorizontalContentAlignment="Center" Background="AliceBlue" Grid.Row="1" Margin="0,210,0,0" ItemsSource="{Binding Elektricnii, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Izabran}">
+            <ListView.View>
+                <GridView AllowsColumnReorder="False">
+                    <GridViewColumn Header="SASIJA" Width="70" DisplayMemberBinding="{Binding SASIJA, Mode=OneTime}"/>
+                    <GridViewColumn Header="Marka" Width="100" DisplayMemberBinding="{Binding Marka, Mode=OneTime}"/>
+                    <GridViewColumn Header="Broj SK" Width="100" DisplayMemberBinding="{Binding BrSK, Mode=OneTime}"/>
+                    <GridViewColumn Header="Datum SK" Width="140" DisplayMemberBinding="{Binding DatSK, StringFormat='dd.MM.yyyy', Mode=OneTime}"/>
+                    <GridViewColumn Header="Tip automobila" Width="100" DisplayMemberBinding="{Binding TipMot, Mode=OneTime}"/>
+                    <GridViewColumn Header="Broj motora" Width="80" DisplayMemberBinding="{Binding BrMot, Mode=OneTime}"/>
+                    <GridViewColumn Header="ID servisa" Width="80" DisplayMemberBinding="{Binding ServisIDS, Mode=OneTime}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <RadioButton IsChecked="{Binding RadioIzmeni, Mode=OneWayToSource}" FontStyle="Italic" FontSize="13" FontWeight="DemiBold" GroupName="operacija" Width="100" Height="30" Margin="560,10,40,401" Grid.Row="1" VerticalContentAlignment="Center">
+            Izmeni
+        </RadioButton>
+        <RadioButton IsChecked="{Binding RadioDodaj, Mode=OneWayToSource}" FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Name="radioServisDodaj" GroupName="operacija" Width="100" Height="30" Margin="560,40,40,371" Grid.Row="1" VerticalContentAlignment="Center">
+            Dodaj
+        </RadioButton>
+        <RadioButton IsChecked="{Binding RadioObrisi, Mode=OneWayToSource}" FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Name="radioServisObrisi" GroupName="operacija" Width="100" Height="30" Margin="560,70,40,341" Grid.Row="1" VerticalContentAlignment="Center">
+            Obrisi
+        </RadioButton>
+        <Button FontSize="13" FontWeight="DemiBold" Background="YellowGreen" Name="btnServisOp" Grid.Row="1" Content="Izvrsi operaciju" Margin="560,101,20,300" Command="{Binding KomandaIzvrsi}"/>
+        <Label FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Content="SASIJA: " Grid.Row="1" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        <Label FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Content="Marka: " Grid.Row="1" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,40,0,0"/>
+        <Label FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Content="Broj SK: " Grid.Row="1" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,70,0,0"/>
+        <Label FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Content="Datum SK: " Grid.Row="1" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,0,0"/>
+        <Label FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Content="Tip automobila: " Grid.Row="1" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,0,0"/>
+        <Label FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Content="Broj motora: " Grid.Row="1" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0"/>
+        <Label FontStyle="Italic" FontSize="13" FontWeight="DemiBold" Content="ID servisa: " Grid.Row="1" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,10,0,0"/>
+
+        <TextBox FontSize="13" Grid.Row="1" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Text="{Binding Izabran.SASIJA, Mode=TwoWay}" Width="170" Margin="125,10,0,0" />
+        <TextBox FontSize="13" Grid.Row="1" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Text="{Binding Izabran.Marka, Mode=TwoWay}" Width="170" Margin="125,40,0,0" />
+        <TextBox FontSize="13" Grid.Row="1" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Text="{Binding Izabran.BrSK, Mode=TwoWay}" Width="170" Margin="125,70,0,0" />
+        <DatePicker FontSize="13" Grid.Row="1" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Text="{Binding Izabran.DatSK,StringFormat='dd.MM.yyy', Mode=TwoWay}" Width="170" Margin="125,100,0,0" />
+        <TextBox IsReadOnly="True" Background="LightGray" FontSize="13" Grid.Row="1" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Text="{Binding Izabran.TipMot, Mode=TwoWay}" Width="170" Margin="125,130,0,0" />
+        <TextBox FontSize="13" Grid.Row="1" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Text="{Binding Izabran.BrMot, Mode=TwoWay}" Width="170" Margin="125,160,0,0" />
+        <ComboBox FontSize="13" Grid.Row="1" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 ItemsSource="{Binding ids,UpdateSourceTrigger=PropertyChanged}"
+                 SelectedItem="{Binding Izabran.ServisIDS, Mode=TwoWay}" Width="170" Margin="370,10,0,0" />
+    </Grid>
+</UserControl>
